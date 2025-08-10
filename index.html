@@ -1,45 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Helpful Life Skills</title>
-  <style>
-    body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; padding: 20px; }
-    header { text-align: center; }
-    header img { width: 100%; max-height: 250px; object-fit: cover; border-radius: 10px; }
-    h1 { color: #2c3e50; }
-    section { margin: 20px 0; }
-    img.tip-image { width: 100%; max-height: 200px; border-radius: 8px; object-fit: cover; margin-top: 10px; }
-    footer { text-align: center; margin-top: 40px; font-size: 0.9em; color: #888; }
-  </style>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Maths Mastery - Learn Math Step by Step</title>
+<style>
+  body { font-family: Arial, sans-serif; max-width: 700px; margin: 30px auto; padding: 20px; background: #f0f4f8; }
+  h1, h2 { text-align: center; color: #2c3e50; }
+  #topicList { list-style: none; padding: 0; }
+  #topicList li {
+    background: white; margin: 10px 0; padding: 15px 20px; border-radius: 8px; cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    display: flex; justify-content: space-between; align-items: center;
+    transition: background 0.3s;
+  }
+  #topicList li:hover { background: #d0e6ff; }
+  .completed { color: green; font-weight: bold; }
+  button { padding: 10px 15px; margin: 10px 5px; border: none; border-radius: 5px; background: #1976d2; color: white; cursor: pointer; font-size: 16px; }
+  button:disabled { background: #a0a0a0; cursor: not-allowed; }
+  #lessonContainer { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
+  #navButtons { text-align: center; margin-top: 20px; }
+  #backToTopics { margin-top: 10px; background: #555; }
+</style>
 </head>
 <body>
-  <header>
-    <h1>Welcome to Life Skills Help</h1>
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Calm nature scenery" />
-  </header>
 
-  <section>
-    <h2>Stress Relief Tips</h2>
-    <p>Take deep breaths, go for a walk, and listen to calming music to reduce stress.</p>
-    <img class="tip-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Person relaxing outdoors" />
-  </section>
+<h1>Maths Mastery</h1>
 
-  <section>
-    <h2>Budgeting Basics</h2>
-    <p>Track your income and expenses using simple spreadsheets or apps to save money.</p>
-    <img class="tip-image" src="https://images.unsplash.com/photo-1565372913774-f7317eacb434?auto=format&fit=crop&w=800&q=80" alt="Budget planning" />
-  </section>
+<div id="mainContent">
+  <ul id="topicList"></ul>
+</div>
 
-  <section>
-    <h2>Time Management</h2>
-    <p>Use a planner or calendar app to schedule tasks and avoid procrastination.</p>
-    <img class="tip-image" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Time management tools" />
-  </section>
+<script>
+// Demo lessons content for 5 topics (expandable to 50)
+const topics = [
+  {
+    id: 'addition',
+    title: 'Basic Addition',
+    lessons: [
+      "Addition is combining two numbers to get their total.",
+      "Example: 2 + 3 = 5",
+      "Try adding these: 4 + 5 = ?",
+      "Answer: 9. Great job!",
+      "Addition is one of the fundamental operations in math."
+    ]
+  },
+  {
+    id: 'subtraction',
+    title: 'Basic Subtraction',
+    lessons: [
+      "Subtraction is taking one number away from another.",
+      "Example: 7 - 4 = 3",
+      "Try subtracting these: 10 - 6 = ?",
+      "Answer: 4. Well done!",
+      "Subtraction helps us find differences between numbers."
+    ]
+  },
+  {
+    id: 'multiplication',
+    title: 'Basic Multiplication',
+    lessons: [
+      "Multiplication is repeated addition.",
+      "Example: 3 × 4 means 3 + 3 + 3 + 3 = 12",
+      "Try multiplying: 5 × 2 = ?",
+      "Answer: 10. Excellent!",
+      "Multiplication is used for scaling numbers quickly."
+    ]
+  },
+  {
+    id: 'quadratics',
+    title: 'Introduction to Quadratics',
+    lessons: [
+      "A quadratic equation has the form ax² + bx + c = 0.",
+      "Example: x² + 5x + 6 = 0",
+      "The solutions are values of x that satisfy the equation.",
+      "One way to solve is by factorising.",
+      "Let's explore factorising next!"
+    ]
+  },
+  {
+    id: 'factorising',
+    title: 'Factorising Basics',
+    lessons: [
+      "Factorising means writing an expression as a product of its factors.",
+      "Example: x² + 5x + 6 = (x + 2)(x + 3)",
+      "Try factorising: x² + 7x + 12",
+      "Answer: (x + 3)(x + 4)",
+      "Factorising helps solve quadratic equations easily."
+    ]
+  }
+];
 
-  <footer>
-    &copy; 2025 Life Skills Help - Created by You
-  </footer>
+// Progress stored here (loaded from localStorage)
+let progress = {};
+
+// Current state
+let currentTopicId = null;
+let currentLessonIndex = 0;
+
+const topicListElem = document.getElementById('topicList');
+const mainContent = document.getElementById('mainContent');
+
+function loadProgress() {
+  const stored = localStorage.getItem('mathsMasteryProgress');
+  if(stored) {
+    progress = JSON.parse(stored);
+  }
+}
+function saveProgress() {
+  localStorage.setItem('mathsMasteryProgress', JSON.stringify(progress));
+}
+
+function renderTopicList() {
+  mainContent.innerHTML = '';
+  const ul = document.createElement('ul');
+  ul.id = 'topicList';
+  topics.forEach(topic => {
+    const li = document.createElement('li');
+    li.textContent = topic.title;
+    if(progress[topic.id]) {
+      const doneSpan = document.createElement('span');
+      doneSpan.textContent = '✓ Completed';
+      doneSpan.className = 'completed';
+      li.appendChild(doneSpan);
+    }
+    li.onclick = () => startTopic(topic.id);
+    ul.appendChild(li);
+  });
+  mainContent.appendChild(ul);
+}
+
+function startTopic(topicId) {
+  currentTopicId = topicId;
+  currentLessonIndex = 0;
+  renderLesson();
+}
+
+function renderLesson() {
+  const topic = topics.find(t => t.id === currentTopicId);
+  if(!topic) return;
+
+  mainContent.innerHTML = '';
+  const lessonContainer = document.createElement('div');
+  lessonContainer.id = 'lessonContainer';
+
+  const h2 = document.createElement('h2');
+  h2.textContent = topic.title;
+  lessonContainer.appendChild(h2);
+
+  const p = document.createElement('p');
+  p.textContent = topic.lessons[currentLessonIndex];
+  lessonContainer.appendChild(p);
+
+  // Navigation buttons
+  const navDiv = document.createElement('div');
+  navDiv.id = 'navButtons';
+
+  const prevBtn = document.createElement('button');
+  prevBtn.textContent = 'Previous';
+  prevBtn.disabled = currentLessonIndex === 0;
+  prevBtn.onclick = () => {
+    if(currentLessonIndex > 0) {
+      currentLessonIndex--;
+      renderLesson();
+    }
+  };
+  navDiv.appendChild(prevBtn);
+
+  const nextBtn = document.createElement('button');
+  nextBtn.textContent = currentLessonIndex === topic.lessons.length -1 ? 'Finish' : 'Next';
+  nextBtn.onclick = () => {
+    if(currentLessonIndex < topic.lessons.length -1) {
+      currentLessonIndex++;
+      renderLesson();
+    } else {
+      // Mark complete & back to topics
+      progress[currentTopicId] = true;
+      saveProgress();
+      renderTopicList();
+    }
+  };
+  navDiv.appendChild(nextBtn);
+
+  lessonContainer.appendChild(navDiv);
+
+  // Back to topics button
+  const backBtn = document.createElement('button');
+  backBtn.textContent = 'Back to Topics';
+  backBtn.id = 'backToTopics';
+  backBtn.onclick = () => renderTopicList();
+  lessonContainer.appendChild(backBtn);
+
+  mainContent.appendChild(lessonContainer);
+}
+
+// Initialize app
+loadProgress();
+renderTopicList();
+
+</script>
+
 </body>
 </html>
