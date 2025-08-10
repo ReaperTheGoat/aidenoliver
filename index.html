@@ -3,201 +3,309 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Maths Mastery - Learn Math Step by Step</title>
+<title>Advanced Math Toolkit</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
 <style>
-  body { font-family: Arial, sans-serif; max-width: 700px; margin: 30px auto; padding: 20px; background: #f0f4f8; }
-  h1, h2 { text-align: center; color: #2c3e50; }
-  #topicList { list-style: none; padding: 0; }
-  #topicList li {
-    background: white; margin: 10px 0; padding: 15px 20px; border-radius: 8px; cursor: pointer;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-    display: flex; justify-content: space-between; align-items: center;
-    transition: background 0.3s;
+  body { font-family: Arial, sans-serif; max-width: 800px; margin: 30px auto; padding: 20px; background: #f9f9f9; }
+  h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
+  .tabs { display: flex; margin-bottom: 20px; cursor: pointer; }
+  .tab {
+    flex: 1; padding: 10px; background: #ddd; text-align: center;
+    border: 1px solid #ccc; border-bottom: none; border-radius: 5px 5px 0 0;
+    user-select: none;
+    transition: background-color 0.3s;
   }
-  #topicList li:hover { background: #d0e6ff; }
-  .completed { color: green; font-weight: bold; }
-  button { padding: 10px 15px; margin: 10px 5px; border: none; border-radius: 5px; background: #1976d2; color: white; cursor: pointer; font-size: 16px; }
-  button:disabled { background: #a0a0a0; cursor: not-allowed; }
-  #lessonContainer { background: white; padding: 20px; border-radius: 10px; box-shadow: 0 3px 8px rgba(0,0,0,0.1); }
-  #navButtons { text-align: center; margin-top: 20px; }
-  #backToTopics { margin-top: 10px; background: #555; }
+  .tab.active { background: white; font-weight: bold; border-bottom: 2px solid white; }
+  .content { background: white; padding: 20px; border: 1px solid #ccc; border-radius: 0 5px 5px 5px; min-height: 350px; }
+  label { display: block; margin-top: 10px; font-weight: bold; }
+  input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; font-size: 16px; box-sizing: border-box; }
+  button { margin-top: 15px; padding: 10px 15px; background: #1976d2; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
+  button:hover { background: #145ea8; }
+  #output, #algebraOutput, #trigOutput, #calculusOutput, #matrixOutput { margin-top: 20px; white-space: pre-wrap; font-family: monospace; background: #f4f4f4; padding: 15px; border-radius: 8px; min-height: 120px; }
 </style>
 </head>
 <body>
 
-<h1>Maths Mastery</h1>
+<h1>Advanced Math Toolkit</h1>
 
-<div id="mainContent">
-  <ul id="topicList"></ul>
+<div class="tabs">
+  <div class="tab active" data-tab="algebra">Algebra</div>
+  <div class="tab" data-tab="quadratics">Quadratics</div>
+  <div class="tab" data-tab="trigonometry">Trigonometry</div>
+  <div class="tab" data-tab="calculus">Calculus</div>
+  <div class="tab" data-tab="matrices">Matrices</div>
+</div>
+
+<div class="content">
+
+  <!-- Algebra -->
+  <div id="algebra" class="tab-content">
+    <h2>Algebra Solver (Equations, Factorising, Expanding)</h2>
+    <label for="algebraInput">Enter an equation or expression:</label>
+    <input id="algebraInput" type="text" placeholder="Example: 2x + 3 = 7 or factor(x^2 + 5x + 6)" />
+    <button onclick="solveAlgebra()">Solve / Simplify</button>
+    <pre id="algebraOutput"></pre>
+  </div>
+
+  <!-- Quadratics -->
+  <div id="quadratics" class="tab-content" style="display:none;">
+    <h2>Quadratic Equation Solver</h2>
+    <label for="a">a (≠ 0):</label>
+    <input id="a" type="number" step="any" value="1" />
+    <label for="b">b:</label>
+    <input id="b" type="number" step="any" value="-3" />
+    <label for="c">c:</label>
+    <input id="c" type="number" step="any" value="2" />
+    <button onclick="solveQuadratic()">Solve</button>
+    <pre id="output"></pre>
+  </div>
+
+  <!-- Trigonometry -->
+  <div id="trigonometry" class="tab-content" style="display:none;">
+    <h2>Trigonometry Calculator</h2>
+    <label for="angleInput">Enter angle (degrees):</label>
+    <input id="angleInput" type="number" step="any" value="30" />
+    <button onclick="calcTrig()">Calculate sin, cos, tan</button>
+    <pre id="trigOutput"></pre>
+  </div>
+
+  <!-- Calculus -->
+  <div id="calculus" class="tab-content" style="display:none;">
+    <h2>Calculus (Derivatives & Integrals)</h2>
+    <label for="calcExpr">Enter function of x (e.g. x^3 + 2x):</label>
+    <input id="calcExpr" type="text" placeholder="Example: x^3 + 2*x" />
+    <button onclick="calcDerivative()">Derivative</button>
+    <button onclick="calcIntegral()">Indefinite Integral</button>
+    <pre id="calculusOutput"></pre>
+  </div>
+
+  <!-- Matrices -->
+  <div id="matrices" class="tab-content" style="display:none;">
+    <h2>Matrix Calculator</h2>
+    <label for="matrixInput">Enter matrix (rows separated by ; and elements by ,):</label>
+    <textarea id="matrixInput" rows="4" placeholder="Example: 1,2;3,4"></textarea>
+    <button onclick="calcMatrix()">Calculate Determinant & Inverse</button>
+    <pre id="matrixOutput"></pre>
+  </div>
+
 </div>
 
 <script>
-// Demo lessons content for 5 topics (expandable to 50)
-const topics = [
-  {
-    id: 'addition',
-    title: 'Basic Addition',
-    lessons: [
-      "Addition is combining two numbers to get their total.",
-      "Example: 2 + 3 = 5",
-      "Try adding these: 4 + 5 = ?",
-      "Answer: 9. Great job!",
-      "Addition is one of the fundamental operations in math."
-    ]
-  },
-  {
-    id: 'subtraction',
-    title: 'Basic Subtraction',
-    lessons: [
-      "Subtraction is taking one number away from another.",
-      "Example: 7 - 4 = 3",
-      "Try subtracting these: 10 - 6 = ?",
-      "Answer: 4. Well done!",
-      "Subtraction helps us find differences between numbers."
-    ]
-  },
-  {
-    id: 'multiplication',
-    title: 'Basic Multiplication',
-    lessons: [
-      "Multiplication is repeated addition.",
-      "Example: 3 × 4 means 3 + 3 + 3 + 3 = 12",
-      "Try multiplying: 5 × 2 = ?",
-      "Answer: 10. Excellent!",
-      "Multiplication is used for scaling numbers quickly."
-    ]
-  },
-  {
-    id: 'quadratics',
-    title: 'Introduction to Quadratics',
-    lessons: [
-      "A quadratic equation has the form ax² + bx + c = 0.",
-      "Example: x² + 5x + 6 = 0",
-      "The solutions are values of x that satisfy the equation.",
-      "One way to solve is by factorising.",
-      "Let's explore factorising next!"
-    ]
-  },
-  {
-    id: 'factorising',
-    title: 'Factorising Basics',
-    lessons: [
-      "Factorising means writing an expression as a product of its factors.",
-      "Example: x² + 5x + 6 = (x + 2)(x + 3)",
-      "Try factorising: x² + 7x + 12",
-      "Answer: (x + 3)(x + 4)",
-      "Factorising helps solve quadratic equations easily."
-    ]
-  }
-];
+// Tab switching
+document.querySelectorAll('.tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+    tab.classList.add('active');
 
-// Progress stored here (loaded from localStorage)
-let progress = {};
+    document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
+    document.getElementById(tab.dataset.tab).style.display = 'block';
 
-// Current state
-let currentTopicId = null;
-let currentLessonIndex = 0;
-
-const topicListElem = document.getElementById('topicList');
-const mainContent = document.getElementById('mainContent');
-
-function loadProgress() {
-  const stored = localStorage.getItem('mathsMasteryProgress');
-  if(stored) {
-    progress = JSON.parse(stored);
-  }
-}
-function saveProgress() {
-  localStorage.setItem('mathsMasteryProgress', JSON.stringify(progress));
-}
-
-function renderTopicList() {
-  mainContent.innerHTML = '';
-  const ul = document.createElement('ul');
-  ul.id = 'topicList';
-  topics.forEach(topic => {
-    const li = document.createElement('li');
-    li.textContent = topic.title;
-    if(progress[topic.id]) {
-      const doneSpan = document.createElement('span');
-      doneSpan.textContent = '✓ Completed';
-      doneSpan.className = 'completed';
-      li.appendChild(doneSpan);
-    }
-    li.onclick = () => startTopic(topic.id);
-    ul.appendChild(li);
+    // Clear outputs when switching tabs
+    clearOutputs();
   });
-  mainContent.appendChild(ul);
+});
+
+function clearOutputs() {
+  ['output', 'algebraOutput', 'trigOutput', 'calculusOutput', 'matrixOutput'].forEach(id => {
+    const el = document.getElementById(id);
+    if (el) el.textContent = '';
+  });
 }
 
-function startTopic(topicId) {
-  currentTopicId = topicId;
-  currentLessonIndex = 0;
-  renderLesson();
-}
+// --- Algebra ---
+function solveAlgebra() {
+  const input = document.getElementById('algebraInput').value.trim();
+  const output = document.getElementById('algebraOutput');
 
-function renderLesson() {
-  const topic = topics.find(t => t.id === currentTopicId);
-  if(!topic) return;
+  if (!input) {
+    output.textContent = 'Please enter an algebraic expression or equation.';
+    return;
+  }
 
-  mainContent.innerHTML = '';
-  const lessonContainer = document.createElement('div');
-  lessonContainer.id = 'lessonContainer';
+  try {
+    // If it contains '=', try to solve equation
+    if(input.includes('=')) {
+      // Replace = with , then split for math.js solve
+      const sides = input.split('=');
+      if(sides.length !== 2) throw 'Invalid equation format';
 
-  const h2 = document.createElement('h2');
-  h2.textContent = topic.title;
-  lessonContainer.appendChild(h2);
+      const exprLeft = math.parse(sides[0]);
+      const exprRight = math.parse(sides[1]);
+      const eqn = new math.OperatorNode('-', 'subtract', [exprLeft, exprRight]);
+      const x = math.symbol('x');
 
-  const p = document.createElement('p');
-  p.textContent = topic.lessons[currentLessonIndex];
-  lessonContainer.appendChild(p);
+      // Try solve for x
+      const solutions = math.solve(eqn, 'x');
 
-  // Navigation buttons
-  const navDiv = document.createElement('div');
-  navDiv.id = 'navButtons';
-
-  const prevBtn = document.createElement('button');
-  prevBtn.textContent = 'Previous';
-  prevBtn.disabled = currentLessonIndex === 0;
-  prevBtn.onclick = () => {
-    if(currentLessonIndex > 0) {
-      currentLessonIndex--;
-      renderLesson();
-    }
-  };
-  navDiv.appendChild(prevBtn);
-
-  const nextBtn = document.createElement('button');
-  nextBtn.textContent = currentLessonIndex === topic.lessons.length -1 ? 'Finish' : 'Next';
-  nextBtn.onclick = () => {
-    if(currentLessonIndex < topic.lessons.length -1) {
-      currentLessonIndex++;
-      renderLesson();
+      output.textContent = `Solutions for x:\n${solutions.join('\n')}`;
     } else {
-      // Mark complete & back to topics
-      progress[currentTopicId] = true;
-      saveProgress();
-      renderTopicList();
+      // No =, try simplify or factor
+      // If starts with factor(...), do factorisation
+      if(input.startsWith('factor(')) {
+        const inner = input.slice(7, -1);
+        const factored = math.factor(math.parse(inner));
+        output.textContent = `Factorised:\n${factored.toString()}`;
+      } else {
+        const simplified = math.simplify(input);
+        output.textContent = `Simplified expression:\n${simplified.toString()}`;
+      }
     }
-  };
-  navDiv.appendChild(nextBtn);
-
-  lessonContainer.appendChild(navDiv);
-
-  // Back to topics button
-  const backBtn = document.createElement('button');
-  backBtn.textContent = 'Back to Topics';
-  backBtn.id = 'backToTopics';
-  backBtn.onclick = () => renderTopicList();
-  lessonContainer.appendChild(backBtn);
-
-  mainContent.appendChild(lessonContainer);
+  } catch (e) {
+    output.textContent = 'Error: ' + e.toString();
+  }
 }
 
-// Initialize app
-loadProgress();
-renderTopicList();
+// --- Quadratics ---
+function solveQuadratic() {
+  const a = parseFloat(document.getElementById('a').value);
+  const b = parseFloat(document.getElementById('b').value);
+  const c = parseFloat(document.getElementById('c').value);
+  const output = document.getElementById('output');
+  output.textContent = '';
 
+  if (isNaN(a) || isNaN(b) || isNaN(c)) {
+    output.textContent = 'Please enter valid numbers for a, b, and c.';
+    return;
+  }
+  if (a === 0) {
+    output.textContent = 'Coefficient a cannot be zero.';
+    return;
+  }
+
+  const d = b*b - 4*a*c;
+  output.textContent += `Discriminant (D) = b² - 4ac = ${d}\n\n`;
+
+  if (d < 0) {
+    output.textContent += 'No real roots (discriminant < 0).';
+    return;
+  }
+
+  const sqrtD = Math.sqrt(d);
+  output.textContent += `Square root of discriminant: √D = ${sqrtD.toFixed(4)}\n\n`;
+
+  const denom = 2*a;
+  const x1 = (-b + sqrtD) / denom;
+  const x2 = (-b - sqrtD) / denom;
+
+  output.textContent += `Roots:\n`;
+  output.textContent += `x₁ = (-b + √D) / 2a = ${x1.toFixed(4)}\n`;
+  output.textContent += `x₂ = (-b - √D) / 2a = ${x2.toFixed(4)}\n`;
+}
+
+// --- Trigonometry ---
+function calcTrig() {
+  const angleDeg = parseFloat(document.getElementById('angleInput').value);
+  const output = document.getElementById('trigOutput');
+  output.textContent = '';
+
+  if (isNaN(angleDeg)) {
+    output.textContent = 'Please enter a valid angle in degrees.';
+    return;
+  }
+
+  const angleRad = angleDeg * Math.PI / 180;
+
+  const sin = Math.sin(angleRad);
+  const cos = Math.cos(angleRad);
+  const tan = Math.tan(angleRad);
+
+  output.textContent = 
+    `Angle: ${angleDeg}°\n` +
+    `sin(${angleDeg}°) = ${sin.toFixed(6)}\n` +
+    `cos(${angleDeg}°) = ${cos.toFixed(6)}\n` +
+    `tan(${angleDeg}°) = ${tan.toFixed(6)}\n`;
+}
+
+// --- Calculus ---
+function calcDerivative() {
+  const expr = document.getElementById('calcExpr').value.trim();
+  const output = document.getElementById('calculusOutput');
+  output.textContent = '';
+
+  if (!expr) {
+    output.textContent = 'Please enter a function of x.';
+    return;
+  }
+
+  try {
+    const node = math.parse(expr);
+    const derivative = math.derivative(node, 'x').toString();
+    output.textContent = `f(x) = ${expr}\nDerivative:\nf'(x) = ${derivative}`;
+  } catch (e) {
+    output.textContent = 'Error: ' + e.toString();
+  }
+}
+
+function calcIntegral() {
+  const expr = document.getElementById('calcExpr').value.trim();
+  const output = document.getElementById('calculusOutput');
+  output.textContent = '';
+
+  if (!expr) {
+    output.textContent = 'Please enter a function of x.';
+    return;
+  }
+
+  try {
+    // math.js does not support symbolic integrals natively, so we show numeric approximation
+    output.textContent = 'Symbolic integrals not supported.\n' + 
+      'Numeric integration over interval [0,1]:\n';
+
+    const f = math.compile(expr);
+    const n = 1000;
+    let sum = 0;
+    for(let i = 0; i < n; i++) {
+      const x = i / n;
+      sum += f.evaluate({x});
+    }
+    const integralApprox = sum / n;
+    output.textContent += `Approximate integral of f(x) from 0 to 1 is ~ ${integralApprox.toFixed(6)}`;
+  } catch(e) {
+    output.textContent = 'Error: ' + e.toString();
+  }
+}
+
+// --- Matrices ---
+function calcMatrix() {
+  const input = document.getElementById('matrixInput').value.trim();
+  const output = document.getElementById('matrixOutput');
+  output.textContent = '';
+
+  if (!input) {
+    output.textContent = 'Please enter a matrix.';
+    return;
+  }
+
+  try {
+    // Parse input like: 1,2;3,4 -> [[1,2],[3,4]]
+    const rows = input.split(';').map(r => r.split(',').map(Number));
+    if(!rows.every(r => r.length === rows[0].length)) {
+      output.textContent = 'All rows must have the same number of elements.';
+      return;
+    }
+
+    const matrix = math.matrix(rows);
+
+    output.textContent += `Matrix:\n${matrix.toString()}\n\n`;
+
+    // Calculate determinant if square
+    if (rows.length === rows[0].length) {
+      const det = math.det(matrix);
+      output.textContent += `Determinant: ${det}\n`;
+
+      if (det !== 0) {
+        const inv = math.inv(matrix);
+        output.textContent += `\nInverse:\n${inv.toString()}`;
+      } else {
+        output.textContent += '\nMatrix is singular, no inverse exists.';
+      }
+    } else {
+      output.textContent += 'Matrix is not square, determinant and inverse not available.';
+    }
+  } catch (e) {
+    output.textContent = 'Error: ' + e.toString();
+  }
+}
 </script>
 
 </body>
