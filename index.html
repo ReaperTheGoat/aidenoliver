@@ -1,163 +1,45 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width,initial-scale=1" />
-  <title>Time Management for Teens</title>
-  <meta name="description" content="Simple time management tips, a printable daily planner and Pomodoro techniques for students."/>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Helpful Life Skills</title>
   <style>
-    :root{
-      --accent:#3b82f6;
-      --muted:#6b7280;
-      --bg:#f8fafc;
-      --card:#ffffff;
-      --radius:14px;
-      --gap:18px;
-      font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      background:linear-gradient(180deg,var(--bg),#eef2ff);
-      color:#0f172a;
-      -webkit-font-smoothing:antialiased;
-      -moz-osx-font-smoothing:grayscale;
-      padding:30px;
-    }
-    .site{
-      max-width:980px;
-      margin:0 auto;
-    }
-    header{
-      display:flex;
-      align-items:center;
-      gap:16px;
-      margin-bottom:20px;
-    }
-    .logo{
-      width:64px;
-      height:64px;
-      background:linear-gradient(135deg,var(--accent),#6ee7b7);
-      border-radius:12px;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      color:white;
-      font-weight:700;
-      font-size:20px;
-      box-shadow:0 6px 18px rgba(59,130,246,0.18);
-    }
-    h1{margin:0;font-size:28px}
-    p.lead{margin:6px 0 0;color:var(--muted)}
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(2,1fr);
-      gap:var(--gap);
-      margin-top:20px;
-    }
-    .card{
-      background:var(--card);
-      border-radius:var(--radius);
-      padding:18px;
-      box-shadow:0 6px 18px rgba(2,6,23,0.06);
-    }
-    .card h3{margin-top:0}
-    ul.tips{padding-left:18px;margin:10px 0 0;color:var(--muted)}
-    .btn{
-      display:inline-block;
-      background:var(--accent);
-      color:white;
-      padding:10px 14px;border-radius:10px;
-      text-decoration:none;font-weight:600;
-      box-shadow:0 6px 18px rgba(59,130,246,0.18);
-    }
-    .planner{
-      display:flex;
-      flex-direction:column;
-      gap:8px;
-    }
-    .planner input, .planner textarea{
-      padding:10px;border-radius:8px;border:1px solid #e6e9ef;
-      width:100%;
-    }
-    footer{margin-top:26px;color:var(--muted);font-size:14px;text-align:center}
-    @media (max-width:800px){
-      .grid{grid-template-columns:1fr}
-      header{gap:12px}
-    }
+    body { font-family: Arial, sans-serif; max-width: 700px; margin: auto; padding: 20px; }
+    header { text-align: center; }
+    header img { width: 100%; max-height: 250px; object-fit: cover; border-radius: 10px; }
+    h1 { color: #2c3e50; }
+    section { margin: 20px 0; }
+    img.tip-image { width: 100%; max-height: 200px; border-radius: 8px; object-fit: cover; margin-top: 10px; }
+    footer { text-align: center; margin-top: 40px; font-size: 0.9em; color: #888; }
   </style>
 </head>
 <body>
-  <div class="site">
-    <header>
-      <div class="logo">TM</div>
-      <div>
-        <h1>Time Management for Teens</h1>
-        <p class="lead">Simple tips, a daily planner, and quick Pomodoro guides to help you study smarter — not harder.</p>
-      </div>
-    </header>
+  <header>
+    <h1>Welcome to Life Skills Help</h1>
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Calm nature scenery" />
+  </header>
 
-    <main class="grid">
-      <section class="card">
-        <h3>Top Quick Tips</h3>
-        <ul class="tips">
-          <li><strong>Use Pomodoro:</strong> 25 minutes focused, 5 minutes break. Repeat 4 times, then take a longer break.</li>
-          <li><strong>Plan the night before:</strong> List 3 important tasks for tomorrow.</li>
-          <li><strong>Two-minute rule:</strong> If it takes <em>less than 2 minutes</em>, do it now.</li>
-          <li><strong>Batch similar tasks:</strong> Do homework of same subject together to save time.</li>
-          <li><strong>Turn off distractions:</strong> Put phone on Do Not Disturb while studying.</li>
-        </ul>
-      </section>
+  <section>
+    <h2>Stress Relief Tips</h2>
+    <p>Take deep breaths, go for a walk, and listen to calming music to reduce stress.</p>
+    <img class="tip-image" src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=800&q=80" alt="Person relaxing outdoors" />
+  </section>
 
-      <section class="card">
-        <h3>Daily Example Schedule</h3>
-        <p style="color:var(--muted);margin-top:6px">A simple school day plan — adjust to your classes.</p>
-        <ul class="tips">
-          <li><strong>06:30</strong> Wake up + morning routine (20–30min)</li>
-          <li><strong>07:30</strong> School</li>
-          <li><strong>16:00</strong> Snack + 30min break</li>
-          <li><strong>16:30–18:00</strong> Homework (use 2 Pomodoro cycles)</li>
-          <li><strong>18:00–19:00</strong> Hobby / exercise</li>
-          <li><strong>20:00</strong> Review notes (20 min) + prep for tomorrow</li>
-          <li><strong>21:30</strong> Wind down + sleep</li>
-        </ul>
-      </section>
+  <section>
+    <h2>Budgeting Basics</h2>
+    <p>Track your income and expenses using simple spreadsheets or apps to save money.</p>
+    <img class="tip-image" src="https://images.unsplash.com/photo-1565372913774-f7317eacb434?auto=format&fit=crop&w=800&q=80" alt="Budget planning" />
+  </section>
 
-      <section class="card">
-        <h3>Printable Daily Planner</h3>
-        <p style="color:var(--muted)">Quick planner you can copy into a Google Doc or print.</p>
-        <div style="background:#f1f5f9;border-radius:10px;padding:12px;margin-top:10px">
-          <strong>Top 3 Tasks:</strong>
-          <ol style="margin:8px 0 0 18px;color:var(--muted)">
-            <li>________________________</li>
-            <li>________________________</li>
-            <li>________________________</li>
-          </ol>
-          <div style="margin-top:12px">
-            <strong>Pomodoro Sessions (25/5):</strong><br/>
-            ☐ ☐ ☐ ☐ ☐ ☐
-          </div>
-        </div>
-        <a class="btn" href="#planner">Use Online Planner</a>
-      </section>
+  <section>
+    <h2>Time Management</h2>
+    <p>Use a planner or calendar app to schedule tasks and avoid procrastination.</p>
+    <img class="tip-image" src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Time management tools" />
+  </section>
 
-      <section class="card" id="planner">
-        <h3>Simple Online Planner</h3>
-        <p style="color:var(--muted)">Fill this in and copy to your notes each day.</p>
-        <div class="planner">
-          <input placeholder="Date (e.g. 2025-08-10)"/>
-          <input placeholder="Top task #1"/>
-          <input placeholder="Top task #2"/>
-          <input placeholder="Top task #3"/>
-          <textarea rows="3" placeholder="Notes or reminders (eg. exam next week)"></textarea>
-          <a class="btn" href="javascript:void(0)" onclick="alert('Planner saved! (This is a demo button — to save, copy the fields to your notes.)')">Save / Copy</a>
-        </div>
-      </section>
-    </main>
-
-    <footer>
-      Built by a student — share with friends. Want this customized for Money Skills or Mental Health? Ask me and I'll change the content.
-    </footer>
-  </div>
+  <footer>
+    &copy; 2025 Life Skills Help - Created by You
+  </footer>
 </body>
 </html>
