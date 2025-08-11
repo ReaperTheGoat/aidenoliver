@@ -44,8 +44,8 @@
       background: #333;
       display: flex;
       justify-content: center;
-      flex-wrap: wrap; /* allow wrap on mobile */
-      gap: 10px; /* spacing between links */
+      flex-wrap: wrap;
+      gap: 10px;
       padding: 15px 10px;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
     }
@@ -106,12 +106,33 @@
     }
 
     section img {
-      max-width: 100%;
+      width: 100%;
+      max-width: 900px;
+      height: auto;
+      max-height: 300px;
       border-radius: 10px;
       margin-top: 15px;
       box-shadow: 0 4px 10px rgba(0,0,0,0.1);
       object-fit: cover;
-      height: auto;
+    }
+
+    @media (max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      section {
+        padding: 20px;
+      }
+      nav a {
+        font-size: 0.95rem;
+        padding: 8px 14px;
+      }
+      section img {
+        max-height: 200px;
+      }
     }
 
     .highlight {
@@ -151,23 +172,6 @@
       font-size: 0.9rem;
       margin-top: auto;
     }
-
-    /* Responsive */
-    @media(max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      section {
-        padding: 20px;
-      }
-      nav a {
-        font-size: 0.95rem;
-        padding: 8px 14px;
-      }
-    }
   </style>
 </head>
 <body>
@@ -190,7 +194,13 @@
     <p>The internet can be a wonderful place to learn, socialize, and express yourself — but it also hides serious dangers. Many teens experience bullying online, sometimes called cyberbullying, where hurtful messages, rumors, or embarrassing images are shared to harm or manipulate others.</p>
     <p>Even worse, some predators use the internet to manipulate teens for sexual exploitation, pretending to be friends or trustworthy adults. This kind of manipulation is dangerous and can have severe long-term effects on your mental and emotional health.</p>
     <div class="highlight">Remember: Your safety and well-being come first. No one has the right to make you feel scared or uncomfortable online.</div>
-    <img src="https://images.unsplash.com/photo-1537432376769-c2bb1af404d6?auto=format&fit=crop&w=900&q=80" alt="Teen using phone with worried expression" />
+    <img
+      src="https://images.unsplash.com/photo-1537432376769-c2bb1af404d6?auto=format&fit=crop&w=600&q=80"
+      alt="Teen using phone with worried expression"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
   </section>
 
   <section id="recognize">
@@ -203,7 +213,13 @@
       <li>Someone pretending to be your friend but acting secretive or controlling</li>
       <li>Being asked to keep conversations or relationships secret</li>
     </ul>
-    <img src="https://images.unsplash.com/photo-1556228724-2ceebf7a1792?auto=format&fit=crop&w=900&q=80" alt="Chat messages on phone showing bullying" />
+    <img
+      src="https://images.unsplash.com/photo-1556228724-2ceebf7a1792?auto=format&fit=crop&w=600&q=80"
+      alt="Chat messages on phone showing bullying"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
   </section>
 
   <section id="action">
@@ -217,7 +233,13 @@
       <li><strong>Report:</strong> Use app or website reporting tools</li>
     </ul>
     <div class="highlight">You are not alone. There are people ready to help you.</div>
-    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=80" alt="Teen talking with trusted adult" />
+    <img
+      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
+      alt="Teen talking with trusted adult"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
   </section>
 
   <section id="help">
@@ -228,10 +250,16 @@
       <li><strong>Gender-Based Violence Command Centre:</strong> <a href="tel:0800150150" class="button-link">0800 150 150</a> — For victims of violence and abuse</li>
       <li><strong>South African Police Service (SAPS) Emergency:</strong> <a href="tel:10111" class="button-link">10111</a></li>
       <li><strong>Stop Gender Violence Helpline:</strong> <a href="tel:0711230784" class="button-link">071 123 0784</a> — SMS and WhatsApp support</li>
-      <li><strong>Child Welfare South Africa:</strong> <a href="https://www.childwelfaresa.org.za" target="_blank" class="button-link">childwelfaresa.org.za</a></li>
+      <li><strong>Child Welfare South Africa:</strong> <a href="https://www.childwelfaresa.org.za" target="_blank" class="button-link" rel="noopener noreferrer">childwelfaresa.org.za</a></li>
     </ul>
     <p>If you feel in immediate danger, call the SAPS emergency number <strong>10111</strong> right away.</p>
-    <img src="https://images.unsplash.com/photo-1520975924627-611a1aa0fbbb?auto=format&fit=crop&w=900&q=80" alt="Support helpline phone" />
+    <img
+      src="https://images.unsplash.com/photo-1520975924627-611a1aa0fbbb?auto=format&fit=crop&w=600&q=80"
+      alt="Support helpline phone"
+      width="600"
+      height="400"
+      loading="lazy"
+    />
   </section>
 </main>
 
