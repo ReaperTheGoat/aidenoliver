@@ -1,312 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Advanced Math Toolkit</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/11.8.0/math.min.js"></script>
-<style>
-  body { font-family: Arial, sans-serif; max-width: 800px; margin: 30px auto; padding: 20px; background: #f9f9f9; }
-  h1 { text-align: center; color: #2c3e50; margin-bottom: 30px; }
-  .tabs { display: flex; margin-bottom: 20px; cursor: pointer; }
-  .tab {
-    flex: 1; padding: 10px; background: #ddd; text-align: center;
-    border: 1px solid #ccc; border-bottom: none; border-radius: 5px 5px 0 0;
-    user-select: none;
-    transition: background-color 0.3s;
-  }
-  .tab.active { background: white; font-weight: bold; border-bottom: 2px solid white; }
-  .content { background: white; padding: 20px; border: 1px solid #ccc; border-radius: 0 5px 5px 5px; min-height: 350px; }
-  label { display: block; margin-top: 10px; font-weight: bold; }
-  input, select, textarea { width: 100%; padding: 8px; margin-top: 5px; font-size: 16px; box-sizing: border-box; }
-  button { margin-top: 15px; padding: 10px 15px; background: #1976d2; color: white; border: none; border-radius: 5px; cursor: pointer; font-size: 16px; }
-  button:hover { background: #145ea8; }
-  #output, #algebraOutput, #trigOutput, #calculusOutput, #matrixOutput { margin-top: 20px; white-space: pre-wrap; font-family: monospace; background: #f4f4f4; padding: 15px; border-radius: 8px; min-height: 120px; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Learn about the dangers of wildlife in Africa, their causes, and solutions to protect both humans and animals.">
+    <title>Dangers of Wildlife in Africa</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+        header {
+            background: url('https://upload.wikimedia.org/wikipedia/commons/3/3e/Lion_waiting_in_Namibia.jpg') no-repeat center center/cover;
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+        }
+        header h1 {
+            font-size: 2.5rem;
+            background: rgba(0, 0, 0, 0.6);
+            display: inline-block;
+            padding: 10px 20px;
+            border-radius: 8px;
+        }
+        nav {
+            background: #333;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #ff9800;
+        }
+        section {
+            padding: 20px;
+            max-width: 1000px;
+            margin: auto;
+            background: white;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+        h2 {
+            color: #444;
+        }
+        img {
+            max-width: 100%;
+            border-radius: 8px;
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Dangers of Wildlife in Africa</h1>
+    </header>
 
-<h1>Advanced Math Toolkit</h1>
+    <nav>
+        <a href="#lions">Lions</a>
+        <a href="#snakes">Snakes</a>
+        <a href="#hippos">Hippos</a>
+        <a href="#solutions">Solutions</a>
+    </nav>
 
-<div class="tabs">
-  <div class="tab active" data-tab="algebra">Algebra</div>
-  <div class="tab" data-tab="quadratics">Quadratics</div>
-  <div class="tab" data-tab="trigonometry">Trigonometry</div>
-  <div class="tab" data-tab="calculus">Calculus</div>
-  <div class="tab" data-tab="matrices">Matrices</div>
-</div>
+    <section id="lions">
+        <h2>Lions</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg" alt="Lion in Africa">
+        <p>
+            Lions are one of the most iconic predators in Africa, but they can pose a serious threat to humans, especially in rural areas near game reserves.  
+            Attacks usually occur when people enter their territory for farming, water collection, or illegal hunting.
+        </p>
+        <p><strong>Danger:</strong> Lions can run at speeds up to 80 km/h and attack without warning.</p>
+        <p><strong>Prevention:</strong> Avoid walking alone at night in lion territories, and use protective fencing for livestock.</p>
+    </section>
 
-<div class="content">
+    <section id="snakes">
+        <h2>Venomous Snakes</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Black_Mamba.jpg" alt="Black Mamba">
+        <p>
+            Africa is home to some of the most venomous snakes in the world, such as the Black Mamba and Puff Adder.  
+            Snake bites can be fatal if not treated immediately with antivenom.
+        </p>
+        <p><strong>Danger:</strong> The Black Mamba's venom can kill a human in under an hour without treatment.</p>
+        <p><strong>Prevention:</strong> Wear boots and thick pants when walking in grassy areas and keep surroundings clean to avoid attracting rodents (snake prey).</p>
+    </section>
 
-  <!-- Algebra -->
-  <div id="algebra" class="tab-content">
-    <h2>Algebra Solver (Equations, Factorising, Expanding)</h2>
-    <label for="algebraInput">Enter an equation or expression:</label>
-    <input id="algebraInput" type="text" placeholder="Example: 2x + 3 = 7 or factor(x^2 + 5x + 6)" />
-    <button onclick="solveAlgebra()">Solve / Simplify</button>
-    <pre id="algebraOutput"></pre>
-  </div>
+    <section id="hippos">
+        <h2>Hippos</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Hippo_open_mouth.jpg" alt="Hippo in river">
+        <p>
+            Hippos are often underestimated because they appear calm, but they are one of the most dangerous animals in Africa.  
+            They are territorial and can attack boats or people who come too close.
+        </p>
+        <p><strong>Danger:</strong> Hippos kill more people each year than lions due to their aggressive behavior in water.</p>
+        <p><strong>Prevention:</strong> Keep a safe distance from rivers and lakes known to have hippos, and avoid traveling in small boats at night.</p>
+    </section>
 
-  <!-- Quadratics -->
-  <div id="quadratics" class="tab-content" style="display:none;">
-    <h2>Quadratic Equation Solver</h2>
-    <label for="a">a (≠ 0):</label>
-    <input id="a" type="number" step="any" value="1" />
-    <label for="b">b:</label>
-    <input id="b" type="number" step="any" value="-3" />
-    <label for="c">c:</label>
-    <input id="c" type="number" step="any" value="2" />
-    <button onclick="solveQuadratic()">Solve</button>
-    <pre id="output"></pre>
-  </div>
+    <section id="solutions">
+        <h2>Solutions to Wildlife Dangers</h2>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Wildlife_conservation_in_Africa.jpg" alt="Wildlife conservation in Africa">
+        <p>
+            Human-wildlife conflict can be reduced through:
+        </p>
+        <ul>
+            <li>Community education about wildlife safety.</li>
+            <li>Stronger fences and protective barriers around villages.</li>
+            <li>Government and NGO-led conservation programs.</li>
+            <li>Emergency medical training for treating bites and attacks.</li>
+            <li>Eco-tourism programs that protect wildlife and support local communities.</li>
+        </ul>
+    </section>
 
-  <!-- Trigonometry -->
-  <div id="trigonometry" class="tab-content" style="display:none;">
-    <h2>Trigonometry Calculator</h2>
-    <label for="angleInput">Enter angle (degrees):</label>
-    <input id="angleInput" type="number" step="any" value="30" />
-    <button onclick="calcTrig()">Calculate sin, cos, tan</button>
-    <pre id="trigOutput"></pre>
-  </div>
-
-  <!-- Calculus -->
-  <div id="calculus" class="tab-content" style="display:none;">
-    <h2>Calculus (Derivatives & Integrals)</h2>
-    <label for="calcExpr">Enter function of x (e.g. x^3 + 2x):</label>
-    <input id="calcExpr" type="text" placeholder="Example: x^3 + 2*x" />
-    <button onclick="calcDerivative()">Derivative</button>
-    <button onclick="calcIntegral()">Indefinite Integral</button>
-    <pre id="calculusOutput"></pre>
-  </div>
-
-  <!-- Matrices -->
-  <div id="matrices" class="tab-content" style="display:none;">
-    <h2>Matrix Calculator</h2>
-    <label for="matrixInput">Enter matrix (rows separated by ; and elements by ,):</label>
-    <textarea id="matrixInput" rows="4" placeholder="Example: 1,2;3,4"></textarea>
-    <button onclick="calcMatrix()">Calculate Determinant & Inverse</button>
-    <pre id="matrixOutput"></pre>
-  </div>
-
-</div>
-
-<script>
-// Tab switching
-document.querySelectorAll('.tab').forEach(tab => {
-  tab.addEventListener('click', () => {
-    document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-    tab.classList.add('active');
-
-    document.querySelectorAll('.tab-content').forEach(c => c.style.display = 'none');
-    document.getElementById(tab.dataset.tab).style.display = 'block';
-
-    // Clear outputs when switching tabs
-    clearOutputs();
-  });
-});
-
-function clearOutputs() {
-  ['output', 'algebraOutput', 'trigOutput', 'calculusOutput', 'matrixOutput'].forEach(id => {
-    const el = document.getElementById(id);
-    if (el) el.textContent = '';
-  });
-}
-
-// --- Algebra ---
-function solveAlgebra() {
-  const input = document.getElementById('algebraInput').value.trim();
-  const output = document.getElementById('algebraOutput');
-
-  if (!input) {
-    output.textContent = 'Please enter an algebraic expression or equation.';
-    return;
-  }
-
-  try {
-    // If it contains '=', try to solve equation
-    if(input.includes('=')) {
-      // Replace = with , then split for math.js solve
-      const sides = input.split('=');
-      if(sides.length !== 2) throw 'Invalid equation format';
-
-      const exprLeft = math.parse(sides[0]);
-      const exprRight = math.parse(sides[1]);
-      const eqn = new math.OperatorNode('-', 'subtract', [exprLeft, exprRight]);
-      const x = math.symbol('x');
-
-      // Try solve for x
-      const solutions = math.solve(eqn, 'x');
-
-      output.textContent = `Solutions for x:\n${solutions.join('\n')}`;
-    } else {
-      // No =, try simplify or factor
-      // If starts with factor(...), do factorisation
-      if(input.startsWith('factor(')) {
-        const inner = input.slice(7, -1);
-        const factored = math.factor(math.parse(inner));
-        output.textContent = `Factorised:\n${factored.toString()}`;
-      } else {
-        const simplified = math.simplify(input);
-        output.textContent = `Simplified expression:\n${simplified.toString()}`;
-      }
-    }
-  } catch (e) {
-    output.textContent = 'Error: ' + e.toString();
-  }
-}
-
-// --- Quadratics ---
-function solveQuadratic() {
-  const a = parseFloat(document.getElementById('a').value);
-  const b = parseFloat(document.getElementById('b').value);
-  const c = parseFloat(document.getElementById('c').value);
-  const output = document.getElementById('output');
-  output.textContent = '';
-
-  if (isNaN(a) || isNaN(b) || isNaN(c)) {
-    output.textContent = 'Please enter valid numbers for a, b, and c.';
-    return;
-  }
-  if (a === 0) {
-    output.textContent = 'Coefficient a cannot be zero.';
-    return;
-  }
-
-  const d = b*b - 4*a*c;
-  output.textContent += `Discriminant (D) = b² - 4ac = ${d}\n\n`;
-
-  if (d < 0) {
-    output.textContent += 'No real roots (discriminant < 0).';
-    return;
-  }
-
-  const sqrtD = Math.sqrt(d);
-  output.textContent += `Square root of discriminant: √D = ${sqrtD.toFixed(4)}\n\n`;
-
-  const denom = 2*a;
-  const x1 = (-b + sqrtD) / denom;
-  const x2 = (-b - sqrtD) / denom;
-
-  output.textContent += `Roots:\n`;
-  output.textContent += `x₁ = (-b + √D) / 2a = ${x1.toFixed(4)}\n`;
-  output.textContent += `x₂ = (-b - √D) / 2a = ${x2.toFixed(4)}\n`;
-}
-
-// --- Trigonometry ---
-function calcTrig() {
-  const angleDeg = parseFloat(document.getElementById('angleInput').value);
-  const output = document.getElementById('trigOutput');
-  output.textContent = '';
-
-  if (isNaN(angleDeg)) {
-    output.textContent = 'Please enter a valid angle in degrees.';
-    return;
-  }
-
-  const angleRad = angleDeg * Math.PI / 180;
-
-  const sin = Math.sin(angleRad);
-  const cos = Math.cos(angleRad);
-  const tan = Math.tan(angleRad);
-
-  output.textContent = 
-    `Angle: ${angleDeg}°\n` +
-    `sin(${angleDeg}°) = ${sin.toFixed(6)}\n` +
-    `cos(${angleDeg}°) = ${cos.toFixed(6)}\n` +
-    `tan(${angleDeg}°) = ${tan.toFixed(6)}\n`;
-}
-
-// --- Calculus ---
-function calcDerivative() {
-  const expr = document.getElementById('calcExpr').value.trim();
-  const output = document.getElementById('calculusOutput');
-  output.textContent = '';
-
-  if (!expr) {
-    output.textContent = 'Please enter a function of x.';
-    return;
-  }
-
-  try {
-    const node = math.parse(expr);
-    const derivative = math.derivative(node, 'x').toString();
-    output.textContent = `f(x) = ${expr}\nDerivative:\nf'(x) = ${derivative}`;
-  } catch (e) {
-    output.textContent = 'Error: ' + e.toString();
-  }
-}
-
-function calcIntegral() {
-  const expr = document.getElementById('calcExpr').value.trim();
-  const output = document.getElementById('calculusOutput');
-  output.textContent = '';
-
-  if (!expr) {
-    output.textContent = 'Please enter a function of x.';
-    return;
-  }
-
-  try {
-    // math.js does not support symbolic integrals natively, so we show numeric approximation
-    output.textContent = 'Symbolic integrals not supported.\n' + 
-      'Numeric integration over interval [0,1]:\n';
-
-    const f = math.compile(expr);
-    const n = 1000;
-    let sum = 0;
-    for(let i = 0; i < n; i++) {
-      const x = i / n;
-      sum += f.evaluate({x});
-    }
-    const integralApprox = sum / n;
-    output.textContent += `Approximate integral of f(x) from 0 to 1 is ~ ${integralApprox.toFixed(6)}`;
-  } catch(e) {
-    output.textContent = 'Error: ' + e.toString();
-  }
-}
-
-// --- Matrices ---
-function calcMatrix() {
-  const input = document.getElementById('matrixInput').value.trim();
-  const output = document.getElementById('matrixOutput');
-  output.textContent = '';
-
-  if (!input) {
-    output.textContent = 'Please enter a matrix.';
-    return;
-  }
-
-  try {
-    // Parse input like: 1,2;3,4 -> [[1,2],[3,4]]
-    const rows = input.split(';').map(r => r.split(',').map(Number));
-    if(!rows.every(r => r.length === rows[0].length)) {
-      output.textContent = 'All rows must have the same number of elements.';
-      return;
-    }
-
-    const matrix = math.matrix(rows);
-
-    output.textContent += `Matrix:\n${matrix.toString()}\n\n`;
-
-    // Calculate determinant if square
-    if (rows.length === rows[0].length) {
-      const det = math.det(matrix);
-      output.textContent += `Determinant: ${det}\n`;
-
-      if (det !== 0) {
-        const inv = math.inv(matrix);
-        output.textContent += `\nInverse:\n${inv.toString()}`;
-      } else {
-        output.textContent += '\nMatrix is singular, no inverse exists.';
-      }
-    } else {
-      output.textContent += 'Matrix is not square, determinant and inverse not available.';
-    }
-  } catch (e) {
-    output.textContent = 'Error: ' + e.toString();
-  }
-}
-</script>
-
+    <footer>
+        <p>&copy; 2025 Wildlife Awareness Africa | Created for Education & Safety</p>
+    </footer>
 </body>
 </html>
