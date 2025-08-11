@@ -1,132 +1,219 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Learn about the dangers of wildlife in Africa, their causes, and solutions to protect both humans and animals.">
-    <title>Dangers of Wildlife in Africa</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            background-color: #f4f4f4;
-            color: #333;
-        }
-        header {
-            background: url('https://upload.wikimedia.org/wikipedia/commons/3/3e/Lion_waiting_in_Namibia.jpg') no-repeat center center/cover;
-            color: white;
-            padding: 60px 20px;
-            text-align: center;
-        }
-        header h1 {
-            font-size: 2.5rem;
-            background: rgba(0, 0, 0, 0.6);
-            display: inline-block;
-            padding: 10px 20px;
-            border-radius: 8px;
-        }
-        nav {
-            background: #333;
-            padding: 10px;
-            text-align: center;
-        }
-        nav a {
-            color: white;
-            margin: 0 15px;
-            text-decoration: none;
-            font-weight: bold;
-        }
-        nav a:hover {
-            color: #ff9800;
-        }
-        section {
-            padding: 20px;
-            max-width: 1000px;
-            margin: auto;
-            background: white;
-            margin-top: 20px;
-            border-radius: 8px;
-        }
-        h2 {
-            color: #444;
-        }
-        img {
-            max-width: 100%;
-            border-radius: 8px;
-        }
-        footer {
-            background: #333;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Safety & Teen Protection</title>
+  <style>
+    /* Reset & base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f0f4f8;
+      color: #333;
+      line-height: 1.6;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      scroll-behavior: smooth;
+    }
+    header {
+      background: linear-gradient(90deg, #4a90e2, #50e3c2);
+      color: white;
+      padding: 40px 20px;
+      text-align: center;
+      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
+    }
+    header h1 {
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
+    }
+    header p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      max-width: 700px;
+      margin: 0 auto;
+    }
+
+    nav {
+      background: #333;
+      display: flex;
+      justify-content: center;
+      padding: 15px 0;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+    }
+    nav a {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 6px 12px;
+      border-radius: 4px;
+      transition: background-color 0.3s ease;
+    }
+    nav a:hover {
+      background-color: #50e3c2;
+      color: #222;
+    }
+
+    main {
+      flex: 1;
+      padding: 40px 20px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    section {
+      margin-bottom: 60px;
+      background: white;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
+      padding: 30px 40px;
+    }
+
+    section h2 {
+      color: #4a90e2;
+      margin-bottom: 20px;
+      font-size: 2rem;
+      border-bottom: 3px solid #50e3c2;
+      padding-bottom: 8px;
+      width: fit-content;
+    }
+
+    section p {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #444;
+    }
+
+    section img {
+      max-width: 100%;
+      border-radius: 10px;
+      margin-top: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    .highlight {
+      background: #e0f7f5;
+      border-left: 5px solid #4a90e2;
+      padding: 15px 20px;
+      font-style: italic;
+      color: #333;
+      margin-bottom: 25px;
+      border-radius: 6px;
+    }
+
+    .button-link {
+      display: inline-block;
+      padding: 12px 24px;
+      background-color: #50e3c2;
+      color: #222;
+      font-weight: 700;
+      border-radius: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 15px rgba(80, 227, 194, 0.5);
+      transition: background-color 0.3s ease;
+    }
+    .button-link:hover {
+      background-color: #3bb39d;
+      color: white;
+      box-shadow: 0 6px 18px rgba(59, 179, 157, 0.7);
+    }
+
+    footer {
+      background: #222;
+      color: #bbb;
+      text-align: center;
+      padding: 25px 20px;
+      font-size: 0.9rem;
+      margin-top: auto;
+    }
+
+    /* Responsive */
+    @media(max-width: 600px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      section {
+        padding: 20px;
+      }
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>Dangers of Wildlife in Africa</h1>
-    </header>
 
-    <nav>
-        <a href="#lions">Lions</a>
-        <a href="#snakes">Snakes</a>
-        <a href="#hippos">Hippos</a>
-        <a href="#solutions">Solutions</a>
-    </nav>
+<header>
+  <h1>Protect Yourself Online</h1>
+  <p>Understanding Online Safety & How to Stay Safe from Bullying and Manipulation</p>
+</header>
 
-    <section id="lions">
-        <h2>Lions</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/73/Lion_waiting_in_Namibia.jpg" alt="Lion in Africa">
-        <p>
-            Lions are one of the most iconic predators in Africa, but they can pose a serious threat to humans, especially in rural areas near game reserves.  
-            Attacks usually occur when people enter their territory for farming, water collection, or illegal hunting.
-        </p>
-        <p><strong>Danger:</strong> Lions can run at speeds up to 80 km/h and attack without warning.</p>
-        <p><strong>Prevention:</strong> Avoid walking alone at night in lion territories, and use protective fencing for livestock.</p>
-    </section>
+<nav>
+  <a href="#dangers">Dangers Online</a>
+  <a href="#recognize">Recognize the Signs</a>
+  <a href="#action">What to Do</a>
+  <a href="#help">Get Help</a>
+</nav>
 
-    <section id="snakes">
-        <h2>Venomous Snakes</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/f/f3/Black_Mamba.jpg" alt="Black Mamba">
-        <p>
-            Africa is home to some of the most venomous snakes in the world, such as the Black Mamba and Puff Adder.  
-            Snake bites can be fatal if not treated immediately with antivenom.
-        </p>
-        <p><strong>Danger:</strong> The Black Mamba's venom can kill a human in under an hour without treatment.</p>
-        <p><strong>Prevention:</strong> Wear boots and thick pants when walking in grassy areas and keep surroundings clean to avoid attracting rodents (snake prey).</p>
-    </section>
+<main>
+  <section id="dangers">
+    <h2>Dangers Teens Face Online</h2>
+    <p>The internet can be a wonderful place to learn, socialize, and express yourself — but it also hides serious dangers. Many teens experience bullying online, sometimes called cyberbullying, where hurtful messages, rumors, or embarrassing images are shared to harm or manipulate others.</p>
+    <p>Even worse, some predators use the internet to manipulate teens for sexual exploitation, pretending to be friends or trustworthy adults. This kind of manipulation is dangerous and can have severe long-term effects on your mental and emotional health.</p>
+    <div class="highlight">Remember: Your safety and well-being come first. No one has the right to make you feel scared or uncomfortable online.</div>
+    <img src="https://images.unsplash.com/photo-1537432376769-c2bb1af404d6?auto=format&fit=crop&w=900&q=60" alt="Teen using phone with worried expression" />
+  </section>
 
-    <section id="hippos">
-        <h2>Hippos</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Hippo_open_mouth.jpg" alt="Hippo in river">
-        <p>
-            Hippos are often underestimated because they appear calm, but they are one of the most dangerous animals in Africa.  
-            They are territorial and can attack boats or people who come too close.
-        </p>
-        <p><strong>Danger:</strong> Hippos kill more people each year than lions due to their aggressive behavior in water.</p>
-        <p><strong>Prevention:</strong> Keep a safe distance from rivers and lakes known to have hippos, and avoid traveling in small boats at night.</p>
-    </section>
+  <section id="recognize">
+    <h2>How to Recognize Bullying & Manipulation</h2>
+    <p>It’s not always obvious when someone is trying to hurt or manipulate you online. Watch out for these signs:</p>
+    <ul>
+      <li>Receiving threatening or mean messages repeatedly</li>
+      <li>Someone pressuring you to share personal info or photos</li>
+      <li>Feeling scared or anxious when using your phone or social media</li>
+      <li>Someone pretending to be your friend but acting secretive or controlling</li>
+      <li>Being asked to keep conversations or relationships secret</li>
+    </ul>
+    <img src="https://images.unsplash.com/photo-1515377905703-c4788e51af15?auto=format&fit=crop&w=900&q=60" alt="Chat messages on phone showing bullying" />
+  </section>
 
-    <section id="solutions">
-        <h2>Solutions to Wildlife Dangers</h2>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7b/Wildlife_conservation_in_Africa.jpg" alt="Wildlife conservation in Africa">
-        <p>
-            Human-wildlife conflict can be reduced through:
-        </p>
-        <ul>
-            <li>Community education about wildlife safety.</li>
-            <li>Stronger fences and protective barriers around villages.</li>
-            <li>Government and NGO-led conservation programs.</li>
-            <li>Emergency medical training for treating bites and attacks.</li>
-            <li>Eco-tourism programs that protect wildlife and support local communities.</li>
-        </ul>
-    </section>
+  <section id="action">
+    <h2>What To Do If You Are Targeted</h2>
+    <p>If you or a friend are being bullied or manipulated online, here are some important steps:</p>
+    <ul>
+      <li><strong>Tell a trusted adult:</strong> Parent, teacher, counselor, or family member</li>
+      <li><strong>Block the person:</strong> Use app settings to block or mute the bully</li>
+      <li><strong>Save evidence:</strong> Take screenshots or save messages</li>
+      <li><strong>Don’t respond:</strong> Engaging may make things worse</li>
+      <li><strong>Report:</strong> Use app or website reporting tools</li>
+    </ul>
+    <div class="highlight">You are not alone. There are people ready to help you.</div>
+    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=900&q=60" alt="Teen talking with trusted adult" />
+  </section>
 
-    <footer>
-        <p>&copy; 2025 Wildlife Awareness Africa | Created for Education & Safety</p>
-    </footer>
+  <section id="help">
+    <h2>Get Help & Support</h2>
+    <p>If you feel unsafe or need someone to talk to, reach out to these helplines and resources immediately:</p>
+    <ul>
+      <li><strong>National Child Abuse Hotline (USA):</strong> <a href="tel:18004224357" class="button-link">1-800-422-4453</a></li>
+      <li><strong>Cyberbullying Helpline (UK):</strong> <a href="tel:0800111141" class="button-link">0800 111 141</a></li>
+      <li><strong>Kids Help Phone (Canada):</strong> <a href="tel:18006666363" class="button-link">1-800-668-6868</a></li>
+      <li><strong>ThinkUKnow:</strong> <a href="https://www.thinkuknow.co.uk" target="_blank" class="button-link">thinkuknow.co.uk</a></li>
+      <li><strong>Childline:</strong> <a href="https://www.childline.org.uk" target="_blank" class="button-link">childline.org.uk</a></li>
+    </ul>
+    <p>If you feel in immediate danger, call emergency services in your country right away.</p>
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=900&q=60" alt="Support helpline" />
+  </section>
+</main>
+
+<footer>
+  &copy; 2025 Online Safety Project — Empowering Teens to Stay Safe
+</footer>
+
 </body>
 </html>
