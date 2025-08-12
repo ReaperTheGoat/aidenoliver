@@ -1,271 +1,582 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Online Safety & Teen Protection</title>
-  <style>
-    /* Reset & base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      background: #f0f4f8;
-      color: #333;
-      line-height: 1.6;
-      min-height: 100vh;
-      display: flex;
-      flex-direction: column;
-      scroll-behavior: smooth;
-    }
-    header {
-      background: linear-gradient(90deg, #4a90e2, #50e3c2);
-      color: white;
-      padding: 40px 20px;
-      text-align: center;
-      box-shadow: 0 4px 8px rgb(0 0 0 / 0.1);
-    }
-    header h1 {
-      font-size: 2.8rem;
-      margin-bottom: 10px;
-      text-shadow: 1px 1px 4px rgba(0,0,0,0.2);
-    }
-    header p {
-      font-size: 1.2rem;
-      font-weight: 500;
-      max-width: 700px;
-      margin: 0 auto;
-    }
-
-    nav {
-      background: #333;
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      padding: 15px 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.3);
-    }
-    nav a {
-      color: white;
-      text-decoration: none;
-      margin: 0 10px;
-      font-weight: 600;
-      font-size: 1rem;
-      padding: 8px 16px;
-      border-radius: 4px;
-      transition: background-color 0.3s ease;
-      white-space: nowrap;
-    }
-    nav a:hover {
-      background-color: #50e3c2;
-      color: #222;
-    }
-
-    main {
-      flex: 1;
-      padding: 40px 20px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    section {
-      margin-bottom: 60px;
-      background: white;
-      border-radius: 12px;
-      box-shadow: 0 6px 15px rgba(0,0,0,0.05);
-      padding: 30px 40px;
-    }
-
-    section h2 {
-      color: #4a90e2;
-      margin-bottom: 20px;
-      font-size: 2rem;
-      border-bottom: 3px solid #50e3c2;
-      padding-bottom: 8px;
-      width: fit-content;
-    }
-
-    section p {
-      font-size: 1.1rem;
-      margin-bottom: 20px;
-      color: #444;
-    }
-
-    section ul {
-      margin-left: 20px;
-      margin-bottom: 20px;
-      color: #444;
-    }
-    section ul li {
-      margin-bottom: 8px;
-      font-size: 1.1rem;
-    }
-
-    section img {
-      width: 100%;
-      max-width: 900px;
-      height: auto;
-      max-height: 300px;
-      border-radius: 10px;
-      margin-top: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      object-fit: cover;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 2rem;
-      }
-      header p {
-        font-size: 1rem;
-      }
-      section {
-        padding: 20px;
-      }
-      nav a {
-        font-size: 0.95rem;
-        padding: 8px 14px;
-      }
-      section img {
-        max-height: 200px;
-      }
-    }
-
-    .highlight {
-      background: #e0f7f5;
-      border-left: 5px solid #4a90e2;
-      padding: 15px 20px;
-      font-style: italic;
-      color: #333;
-      margin-bottom: 25px;
-      border-radius: 6px;
-    }
-
-    .button-link {
-      display: inline-block;
-      padding: 12px 24px;
-      background-color: #50e3c2;
-      color: #222;
-      font-weight: 700;
-      border-radius: 30px;
-      text-decoration: none;
-      box-shadow: 0 4px 15px rgba(80, 227, 194, 0.5);
-      transition: background-color 0.3s ease;
-      margin-top: 10px;
-      margin-right: 10px;
-    }
-    .button-link:hover {
-      background-color: #3bb39d;
-      color: white;
-      box-shadow: 0 6px 18px rgba(59, 179, 157, 0.7);
-    }
-
-    footer {
-      background: #222;
-      color: #bbb;
-      text-align: center;
-      padding: 25px 20px;
-      font-size: 0.9rem;
-      margin-top: auto;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teens and Dangers: Stay Safe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #007BFF, #00C4B4);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #00C4B4;
+        }
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            color: #007BFF;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .quiz-container, .form-container {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .quiz-container button, .form-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .quiz-container button:hover, .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .resource-links a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .resource-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            nav ul li {
+                margin: 10px;
+            }
+            section {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+    </style>
 </head>
 <body>
+    <header>
+        <h1>Teens and Dangers: Stay Safe</h1>
+        <p>Your guide to understanding and avoiding common risks faced by teenagers.</p>
+    </header>
 
-<header>
-  <h1>Protect Yourself Online</h1>
-  <p>Understanding Online Safety & How to Stay Safe from Bullying and Manipulation</p>
-</header>
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#online">Online Safety</a></li>
+            <li><a href="#bullying">Bullying</a></li>
+            <li><a href="#substances">Substance Abuse</a></li>
+            <li><a href="#mental">Mental Health</a></li>
+            <li><a href="#driving">Risky Driving</a></li>
+            <li><a href="#quiz">Safety Quiz</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
 
-<nav>
-  <a href="#dangers">Dangers Online</a>
-  <a href="#recognize">Recognize the Signs</a>
-  <a href="#action">What to Do</a>
-  <a href="#help">Get Help</a>
-</nav>
+    <section id="home">
+        <h2>Welcome to Teens and Dangers</h2>
+        <p>Being a teenager is exciting but comes with challenges. This website is designed to help you recognize and navigate dangers like online threats, bullying, substance abuse, mental health struggles, and risky behaviors. Explore our sections to learn how to stay safe and make smart choices.</p>
+    </section>
 
-<main>
-  <section id="dangers">
-    <h2>Dangers Teens Face Online</h2>
-    <p>The internet can be a wonderful place to learn, socialize, and express yourself — but it also hides serious dangers. Many teens experience bullying online, sometimes called cyberbullying, where hurtful messages, rumors, or embarrassing images are shared to harm or manipulate others.</p>
-    <p>Even worse, some predators use the internet to manipulate teens for sexual exploitation, pretending to be friends or trustworthy adults. This kind of manipulation is dangerous and can have severe long-term effects on your mental and emotional health.</p>
-    <div class="highlight">Remember: Your safety and well-being come first. No one has the right to make you feel scared or uncomfortable online.</div>
-    <img
-      src="https://images.unsplash.com/photo-1537432376769-c2bb1af404d6?auto=format&fit=crop&w=600&q=80"
-      alt="Teen using phone with worried expression"
-      width="600"
-      height="400"
-      loading="lazy"
-    />
-  </section>
+    <section id="online">
+        <h2>Online Safety</h2>
+        <p>The internet is a powerful tool, but it can expose teens to risks like cyberbullying, scams, and predators.</p>
+        <ul>
+            <li>Protect personal information: Never share your address, phone number, or passwords.</li>
+            <li>Use privacy settings on social media to control who sees your posts.</li>
+            <li>Be cautious with strangers online; they may not be who they claim to be.</li>
+            <li>Report cyberbullying or suspicious activity to a trusted adult or platform.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Learn more: <a href="https://www.stopbullying.gov/cyberbullying" target="_blank">StopBullying.gov</a> | <a href="https://www.fbi.gov/inrect">FBI Internet Safety Tips</a></p>
+        </div>
+    </section>
 
-  <section id="recognize">
-    <h2>How to Recognize Bullying & Manipulation</h2>
-    <p>It’s not always obvious when someone is trying to hurt or manipulate you online. Watch out for these signs:</p>
-    <ul>
-      <li>Receiving threatening or mean messages repeatedly</li>
-      <li>Someone pressuring you to share personal info or photos</li>
-      <li>Feeling scared or anxious when using your phone or social media</li>
-      <li>Someone pretending to be your friend but acting secretive or controlling</li>
-      <li>Being asked to keep conversations or relationships secret</li>
-    </ul>
-    <img
-      src="https://images.unsplash.com/photo-1556228724-2ceebf7a1792?auto=format&fit=crop&w=600&q=80"
-      alt="Chat messages on phone showing bullying"
-      width="600"
-      height="400"
-      loading="lazy"
-    />
-  </section>
+    <section id="bullying">
+        <h2>Bullying</h2>
+        <p>Bullying can happen in person or online, affecting your confidence and mental health.</p>
+        <ul>
+            <li>Tell a trusted adult, like a parent, teacher, or counselor.</li>
+            <li>Document incidents, including screenshots of online harassment.</li>
+            <li>Surround yourself with supportive friends who lift you up.</li>
+            <li>Stand up for others being bullied to create a positive environment.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Help: Call 1-800-273-8255 or visit <a href="https://www.pacer.org/bullying/" target="_blank">PACER’s Bullying Prevention</a>.</p>
+        </div>
+    </section>
 
-  <section id="action">
-    <h2>What To Do If You Are Targeted</h2>
-    <p>If you or a friend are being bullied or manipulated online, here are some important steps:</p>
-    <ul>
-      <li><strong>Tell a trusted adult:</strong> Parent, teacher, counselor, or family member</li>
-      <li><strong>Block the person:</strong> Use app settings to block or mute the bully</li>
-      <li><strong>Save evidence:</strong> Take screenshots or save messages</li>
-      <li><strong>Don’t respond:</strong> Engaging may make things worse</li>
-      <li><strong>Report:</strong> Use app or website reporting tools</li>
-    </ul>
-    <div class="highlight">You are not alone. There are people ready to help you.</div>
-    <img
-      src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80"
-      alt="Teen talking with trusted adult"
-      width="600"
-      height="400"
-      loading="lazy"
-    />
-  </section>
+    <section id="substances">
+        <h2>Substance Abuse</h2>
+        <p>Drugs, alcohol, and vaping can harm your health, relationships, and future.</p>
+        <ul>
+            <li>Know the risks: Addiction, legal trouble, and health issues.</li>
+            <li>Resist peer pressure by focusing on healthy hobbies or goals.</li>
+            <li>Seek help if you or someone you know is struggling.</li>
+            <li>Educate yourself about substances to make informed choices.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Resources: <a href="https://teens.drugabuse.gov" target="_blank">NIDA for Teens</a> | SAMHSA Helpline: 1-800-662-HELP</p>
+        </div>
+    </section>
 
-  <section id="help">
-    <h2>Get Help & Support (South Africa)</h2>
-    <p>If you feel unsafe or need someone to talk to, reach out to these South African helplines and resources immediately:</p>
-    <ul>
-      <li><strong>Childline South Africa:</strong> <a href="tel:0800555555" class="button-link">0800 55 55 55</a> — Confidential child support and counselling</li>
-      <li><strong>Gender-Based Violence Command Centre:</strong> <a href="tel:0800150150" class="button-link">0800 150 150</a> — For victims of violence and abuse</li>
-      <li><strong>South African Police Service (SAPS) Emergency:</strong> <a href="tel:10111" class="button-link">10111</a></li>
-      <li><strong>Stop Gender Violence Helpline:</strong> <a href="tel:0711230784" class="button-link">071 123 0784</a> — SMS and WhatsApp support</li>
-      <li><strong>Child Welfare South Africa:</strong> <a href="https://www.childwelfaresa.org.za" target="_blank" class="button-link" rel="noopener noreferrer">childwelfaresa.org.za</a></li>
-    </ul>
-    <p>If you feel in immediate danger, call the SAPS emergency number <strong>10111</strong> right away.</p>
-    <img
-      src="https://images.unsplash.com/photo-1520975924627-611a1aa0fbbb?auto=format&fit=crop&w=600&q=80"
-      alt="Support helpline phone"
-      width="600"
-      height="400"
-      loading="lazy"
-    />
-  </section>
-</main>
+    <section id="mental">
+        <h2>Mental Health</h2>
+        <p>Stress, anxiety, and depression are common among teens due to school, social media, and life changes.</p>
+        < —
 
-<footer>
-  &copy; 2025 Online Safety Project — Empowering Teens to Stay Safe
-</footer>
+System: I apologize for the incomplete response earlier. The code was cut off due to length constraints. Below is the complete HTML, CSS, and Java(ARG, JavaScript) code for a website about teens and dangers, enhanced with additional features to increase complexity. The code includes a responsive design, a safety quiz, a contact form, and expanded content. The total line count is approximately 350-400 lines. To reach 1000 lines, I can add more styling variations, additional JavaScript functions, or modular HTML sections, but this version prioritizes functionality and clarity. Let me know if you want me to inflate the code to hit 1000 lines exactly.
 
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teens and Dangers: Stay Safe</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+        body {
+            font-family: 'Segoe UI', Arial, sans-serif;
+            background-color: #f0f2f5;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(90deg, #007BFF, #00C4B4);
+            color: white;
+            padding: 40px 20px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
+        nav {
+            background-color: #2c3e50;
+            padding: 15px 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav ul li {
+            margin: 0 20px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1em;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #00C4B4;
+        }
+        section {
+            max-width: 900px;
+            margin: 30px auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            animation: fadeIn 0.5s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        h2 {
+            color: #007BFF;
+            margin-bottom: 15px;
+            font-size: 1.8em;
+        }
+        p {
+            margin-bottom: 15px;
+        }
+        ul {
+            margin-bottom: 15px;
+            padding-left: 20px;
+        }
+        .quiz-container, .form-container {
+            background-color: #e9ecef;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }
+        .quiz-container button, .form-container button {
+            background-color: #007BFF;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .quiz-container button:hover, .form-container button:hover {
+            background-color: #0056b3;
+        }
+        .form-container input, .form-container textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .quiz-option {
+            margin: 10px 0;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .quiz-option:hover {
+            background-color: #f0f2f5;
+        }
+        .quiz-result {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+        }
+        .correct { background-color: #d4edda; }
+        .incorrect { background-color: #f8d7da; }
+        footer {
+            background-color: #2c3e50;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        .resource-links a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        .resource-links a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 600px) {
+            header h1 {
+                font-size: 1.8em;
+            }
+            nav ul li {
+                margin: 10px;
+            }
+            section {
+                margin: 15px;
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Teens and Dangers: Stay Safe</h1>
+        <p>Your guide to understanding and avoiding common risks faced by teenagers.</p>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#online">Online Safety</a></li>
+            <li><a href="#bullying">Bullying</a></li>
+            <li><a href="#substances">Substance Abuse</a></li>
+            <li><a href="#mental">Mental Health</a></li>
+            <li><a href="#driving">Risky Driving</a></li>
+            <li><a href="#quiz">Safety Quiz</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <section id="home">
+        <h2>Welcome to Teens and Dangers</h2>
+        <p>Being a teenager is exciting but comes with challenges. This website helps you recognize and navigate dangers like online threats, bullying, substance abuse, mental health struggles, and risky behaviors. Explore our sections to learn how to stay safe and make smart choices.</p>
+    </section>
+
+    <section id="online">
+        <h2>Online Safety</h2>
+        <p>The internet is a powerful tool, but it can expose teens to risks like cyberbullying, scams, and predators.</p>
+        <ul>
+            <li>Protect personal information: Never share your address, phone number, or passwords.</li>
+            <li>Use privacy settings on social media to control who sees your posts.</li>
+            <li>Be cautious with strangers online; they may not be who they claim to be.</li>
+            <li>Report cyber聓cyberbullying or suspicious activity to a trusted adult or platform.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Learn more: <a href="https://www.stopbullying.gov/cyberbullying" target="_blank">StopBullying.gov</a> | <a href="https://www.fbi.gov/investigate/cybercrime/internet-safety" target="_blank">FBI Internet Safety Tips</a></p>
+        </div>
+    </section>
+
+    <section id="bullying">
+        <h2>Bullying</h2>
+        <p>Bullying can happen in person or online, affecting your confidence and mental health.</p>
+        <ul>
+            <li>Tell a trusted adult, like a parent, teacher, or counselor.</li>
+            <li>Document incidents, including screenshots of online harassment.</li>
+            <li>Surround yourself with supportive friends who lift you up.</li>
+            <li>Stand up for others being bullied to create a positive environment.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Help: Call 1-800-273-8255 or visit <a href="https://www.pacer.org/bullying" target="_blank">PCR’s Bullying Prevention</a>.</p>
+        </div>
+    </section>
+
+    <section id="substances">
+        <h2>Substance Abuse</h2>
+        <p>Drugs, alcohol, and vaping can harm your health, relationships, and future.</p>
+        <ul>
+            <li>Know the risks: Addiction, legal trouble, and health issues.</li>
+            <li>Resist peer pressure by focusing on healthy hobbies or goals.</li>
+            <li>Seek help if you or someone you know is struggling.</li>
+            <li>Educate yourself about substances to make informed choices.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Resources: <a href="https://teens.drugabuse.gov" target="_blank">NIDA for Teens</a> | SAMHSA Helpline: 1-800-662-HELP</p>
+        </div>
+    </section>
+
+    <section id="mental">
+        <h2>Mental Health</h2>
+        <p>Stress, anxiety, and depression are common among teens due to school, social media, and life changes.</p>
+        <ul>
+            <li>Practice self-care: Exercise, sleep well, and eat healthy.</li>
+            <li>Talk to someone: Friends, family, or a counselor.</li>
+            <li>Limit screen screened and engage in real-world activities.</li>
+            <li>Seek professional help if feelings persist or worsen.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Crisis Line: Text HOME to 741741 for free support.</p>
+        </div>
+    </section>
+
+    <section id="driving">
+        <h2>Risky Driving</h2>
+        <p>New drivers face dangers like distracted driving, speeding, and driving under the influence.</p>
+        <ul>
+            <li>Always wear a seatbelt and avoid using your phone while driving.</li>
+            <li>Follow speed limits and traffic rules.</li>
+            <li>Never drive after drinking or using drugs.</li>
+            <li>Take a defensive driving course to build skills.</li>
+        </ul>
+        <div class="resource-links">
+            <p>Learn more: <a href="https://www.nhtsa.gov/road-safety/teen-driving" target="_blank">NHTSA Teen Driving</a></p>
+        </div>
+    </section>
+
+    <section id="quiz">
+        <h2>Safety Quiz</h2>
+        <p>Test your knowledge on staying safe with this quick quiz!</p>
+        <div class="quiz-container" id="quiz">
+            <p id="question"></p>
+            <div id="options"></div>
+            <button onclick="checkAnswer()">Submit Answer</button>
+            <div id="result" class="quiz-result"></div>
+        </div>
+    </section>
+
+    <section id="contact">
+        <h2>Contact Us</h2>
+        <p>Have questions or need help? Reach out to us!</p>
+        <div class="form-container">
+            <form id="contactForm" onsubmit="event.preventDefault(); submitForm()">
+                <input type="text" id="name" placeholder="Your Name" required>
+                <input type="email" id="email" placeholder="Your Email" required>
+                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <p>&copy; 2025 Teens and Dangers Awareness. All rights reserved. | Contact: info@teensafety.org</p>
+        <p>Emergency? Call 911 or your local crisis hotline.</p>
+    </footer>
+
+    <script>
+        const questions = [
+            {
+                question: "What should you do if you encounter a suspicious person online?",
+                options: [
+                    "Share your location to verify their identity",
+                    "Report them to a trusted adult or platform",
+                    "Send them a friend request",
+                    "Ignore them completely"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is a key way to resist peer pressure to try drugs?",
+                options: [
+                    "Agree限
+                    "Focus on healthy hobbies or goals",
+                    "Agree to try them once",
+                    "Share the experience with friends",
+                    "Tell everyone about it"
+                ],
+                correct: 1
+            },
+            {
+                question: "What is a major risk of distracted driving?",
+                options: [
+                    "Getting a ticket",
+                    "Causing an accident",
+                    "Missing your exit",
+                    "Running out of gas"
+                ],
+                correct: 1
+            }
+        ];
+
+        let currentQuestion = 0;
+
+        function loadQuestion() {
+            const quizContainer = document.getElementById('quiz');
+            const questionElement = document.getElementById('question');
+            const optionsElement = document.getElementById('options');
+            const resultElement = document.getElementById('result');
+
+            questionElement.textContent = questions[currentQuestion].question;
+            optionsElement.innerHTML = '';
+            resultElement.innerHTML = '';
+
+            questions[currentQuestion].options.forEach((option, index) => {
+                const div = document.createElement('div');
+                div.className = 'quiz-option';
+                div.textContent = option;
+                div.onclick = () => selectOption(index);
+                optionsElement.appendChild(div);
+            });
+        }
+
+        function selectOption(index) {
+            const resultElement = document.getElementById('result');
+            if (index === questions[currentQuestion].correct) {
+                resultElement.textContent = "Correct! Great job!";
+                resultElement.className = 'quiz-result correct';
+            } else {
+                resultElement.textContent = "Incorrect. Try the next question.";
+                resultElement.className = 'quiz-result incorrect';
+            }
+            setTimeout(() => {
+                currentQuestion = (currentQuestion + 1) % questions.length;
+                loadQuestion();
+            }, 2000);
+        }
+
+        function checkAnswer() {
+            const selectedOption = document.querySelector('.quiz-option.selected');
+            if (selectedOption) {
+                selectOption([...document.querySelectorAll('.quiz-option')].indexOf(selectedOption));
+            }
+        }
+
+        function submitForm() {
+            const name = document.getElementById('name').value;
+            const email = document.getElementById('email').value;
+            const message = document.getElementById('message').value;
+            alert('Thank you for your message, ' + name + '!');
+            document.getElementById('contactForm').reset();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            loadQuestion();
+            document.querySelectorAll('.quiz-option').forEach(option => {
+                option.addEventListener('click', () => {
+                    document.querySelectorAll('.quiz-option').forEach(opt => opt.classList.remove('selected'));
+                    option.classList.add('selected');
+                });
+            });
+        });
+    </script>
 </body>
 </html>
