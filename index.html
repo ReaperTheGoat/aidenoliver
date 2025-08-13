@@ -37,6 +37,8 @@
       background-color: #fff;
       height: 400px;
       overflow-y: auto;
+      display: flex;
+      flex-direction: column;
     }
 
     body.dark #chat {
@@ -67,7 +69,7 @@
 
     #inputArea {
       max-width: 600px;
-      margin: 0 auto;
+      margin: 0 auto 20px auto;
       display: flex;
       gap: 10px;
     }
@@ -95,16 +97,12 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      margin-bottom: 10px;
     }
 
     #personality select {
       padding: 5px 10px;
       border-radius: 5px;
-    }
-
-    #chatContainer {
-      display: flex;
-      flex-direction: column;
     }
   </style>
 </head>
@@ -124,12 +122,10 @@
     <button id="toggleTheme">Dark/Light</button>
   </div>
 
-  <div id="chatContainer">
-    <div id="chat"></div>
-    <div id="inputArea">
-      <input type="text" id="message" placeholder="Type a message..." />
-      <button id="send">Send</button>
-    </div>
+  <div id="chat"></div>
+  <div id="inputArea">
+    <input type="text" id="message" placeholder="Type a message..." />
+    <button id="send">Send</button>
   </div>
 
   <script src="https://js.puter.com/v2/"></script>
@@ -149,7 +145,6 @@
       document.body.classList.toggle('dark');
     });
 
-    // Append a message to chat
     function appendMessage(sender, text) {
       const p = document.createElement('div');
       p.classList.add('message');
@@ -163,26 +158,39 @@
       localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
     }
 
-    async function sendMessage() {
-      const message = messageInput.value.trim();
-      if (!message) return;
+    // Initialize Puter.js
+    puter.ready(() => {
+      async function sendMessage() {
+        const message = messageInput.value.trim();
+        if (!message) return;
 
-      appendMessage('You', message);
-      messageInput.value = '';
+        appendMessage('You', message);
+        messageInput.value = '';
 
-      const personality = personalitySelect.value;
+        const personality = personalitySelect.value;
 
-      // Call Puter AI with personality
-      const response = await puter.ai.chat(
-        message,
-        { model: "gpt-4.1-nano", instructions: `Respond as a ${personality} AI.` }
-      );
-      appendMessage('AI', response);
-    }
+        try {
+          const response = await puter.ai.chat(
+            message,
+            { model: "x-ai/grok-4", instructions: `Respond as a ${personality} AI.` }
+          );
+          appendMessage('AI', response.message.content);
+        } catch (err) {
+          appendMessage('AI', "Error: Could not get a response.");
+          console.error(err);
+        }
+      }
 
-    sendBtn.addEventListener('click', sendMessage);
-    messageInput.addEventListener('keypress', e => {
-      if (e.key === 'Enter') sendMessage();
+      // Send button
+      sendBtn.addEventListener('click', sendMessage);
+
+      // Press Enter to send
+      messageInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          sendMessage();
+        }
+      });
     });
   </script>
 </body>
