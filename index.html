@@ -11,23 +11,14 @@
       background-color: #f0f0f0;
       transition: background-color 0.3s, color 0.3s;
     }
-
-    body.dark {
-      background-color: #121212;
-      color: #f0f0f0;
-    }
-
+    body.dark { background-color: #121212; color: #f0f0f0; }
     header {
       padding: 20px;
       text-align: center;
       background-color: #4caf50;
       color: white;
     }
-
-    body.dark header {
-      background-color: #1b5e20;
-    }
-
+    body.dark header { background-color: #1b5e20; }
     #chat {
       max-width: 600px;
       margin: 20px auto;
@@ -40,12 +31,7 @@
       display: flex;
       flex-direction: column;
     }
-
-    body.dark #chat {
-      background-color: #1e1e1e;
-      border-color: #333;
-    }
-
+    body.dark #chat { background-color: #1e1e1e; border-color: #333; }
     .message {
       margin: 10px 0;
       padding: 10px 15px;
@@ -53,57 +39,46 @@
       max-width: 80%;
       word-wrap: break-word;
     }
-
-    .user {
-      background-color: #d1e7ff;
-      align-self: flex-end;
-    }
-
-    .ai {
-      background-color: #e0ffe0;
-      align-self: flex-start;
-    }
-
+    .user { background-color: #d1e7ff; align-self: flex-end; }
+    .ai { background-color: #e0ffe0; align-self: flex-start; }
     body.dark .user { background-color: #2a2a70; }
     body.dark .ai { background-color: #1b5e20; }
-
     #inputArea {
       max-width: 600px;
-      margin: 0 auto 20px auto;
+      margin: 0 auto;
       display: flex;
       gap: 10px;
     }
-
     #message {
       flex: 1;
       padding: 10px;
       border-radius: 10px;
       border: 1px solid #ccc;
+      resize: none;
+      overflow-y: auto;
+      min-height: 40px;
+      max-height: 100px;
     }
-
     #send, #toggleTheme {
       padding: 10px 15px;
       border-radius: 10px;
       border: none;
       cursor: pointer;
     }
-
     #toggleTheme { background-color: #888; color: #fff; }
     body.dark #toggleTheme { background-color: #555; }
-
     #personality {
       margin: 0 auto 10px auto;
       max-width: 600px;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      margin-bottom: 10px;
     }
-
     #personality select {
       padding: 5px 10px;
       border-radius: 5px;
     }
+    #chatContainer { display: flex; flex-direction: column; }
   </style>
 </head>
 <body>
@@ -122,10 +97,12 @@
     <button id="toggleTheme">Dark/Light</button>
   </div>
 
-  <div id="chat"></div>
-  <div id="inputArea">
-    <input type="text" id="message" placeholder="Type a message..." />
-    <button id="send">Send</button>
+  <div id="chatContainer">
+    <div id="chat"></div>
+    <div id="inputArea">
+      <textarea id="message" placeholder="Type a message..."></textarea>
+      <button id="send">Send</button>
+    </div>
   </div>
 
   <script src="https://js.puter.com/v2/"></script>
@@ -139,6 +116,12 @@
     // Load saved chat
     let chatHistory = JSON.parse(localStorage.getItem('chatHistory') || '[]');
     chatHistory.forEach(msg => appendMessage(msg.sender, msg.text));
+
+    // Auto-expand textarea
+    messageInput.addEventListener('input', () => {
+      messageInput.style.height = 'auto';
+      messageInput.style.height = Math.min(messageInput.scrollHeight, 100) + 'px';
+    });
 
     // Toggle dark/light mode
     toggleThemeBtn.addEventListener('click', () => {
@@ -158,35 +141,37 @@
       localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
     }
 
-    // Initialize Puter.js
     puter.ready(() => {
+      let messageCount = 0;
+
       async function sendMessage() {
         const message = messageInput.value.trim();
         if (!message) return;
 
         appendMessage('You', message);
         messageInput.value = '';
+        messageInput.style.height = 'auto';
 
         const personality = personalitySelect.value;
+        let model = messageCount < 5 ? "x-ai/grok-4" : "x-ai/grok-3";
 
         try {
           const response = await puter.ai.chat(
             message,
-            { model: "x-ai/grok-4", instructions: `Respond as a ${personality} AI.` }
+            { model: model, instructions: `Respond as a ${personality} AI.` }
           );
           appendMessage('AI', response.message.content);
         } catch (err) {
           appendMessage('AI', "Error: Could not get a response.");
           console.error(err);
         }
+
+        messageCount++;
       }
 
-      // Send button
       sendBtn.addEventListener('click', sendMessage);
-
-      // Press Enter to send
       messageInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter') {
+        if (e.key === 'Enter' && !e.shiftKey) {
           e.preventDefault();
           sendMessage();
         }
