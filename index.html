@@ -1,29 +1,130 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Save Water – Protect Our Future</title>
-  <style>
-    body { font-family: Arial, sans-serif; margin: 0; padding: 0; line-height: 1.6; background-color: #e0f7fa; color: #004d40; }
-    header { background-color: #00796b; color: white; padding: 30px 0; text-align: center; }
-    header h1 { margin: 0; font-size: 2.5em; }
-    nav { background-color: #004d40; display: flex; justify-content: center; flex-wrap: wrap; position: sticky; top: 0; z-index: 100; }
-    nav a { color: white; padding: 14px 20px; text-decoration: none; font-weight: bold; }
-    nav a:hover { background-color: #00796b; }
-    .container { padding: 30px; max-width: 1200px; margin: auto; }
-    h2 { color: #00796b; margin-top: 50px; }
-    p, li { margin-bottom: 10px; }
-    ul { list-style-type: disc; margin-left: 20px; }
-    .section { margin-bottom: 80px; }
-    .images { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
-    .images img { max-width: 100%; height: auto; border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.2); }
-    button { background-color: #00796b; color: white; padding: 15px 30px; border: none; border-radius: 5px; cursor: pointer; font-size: 1em; margin-top: 20px; }
-    button:hover { background-color: #004d40; }
-    footer { text-align: center; padding: 20px; background-color: #004d40; color: white; }
-    @media(max-width: 768px) { .images { flex-direction: column; } }
-    .fact-box { background-color: #b2dfdb; padding: 15px; border-radius: 10px; margin: 10px 0; text-align: center; font-weight: bold; }
-  </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Save Water – Protect Our Future</title>
+<style>
+/* ===== GENERAL STYLES ===== */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  background-color: #e0f7fa;
+  color: #004d40;
+}
+header {
+  background-color: #00796b;
+  color: white;
+  padding: 30px 0;
+  text-align: center;
+}
+header h1 { margin: 0; font-size: 2.5em; }
+nav {
+  background-color: #004d40;
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+nav a {
+  color: white;
+  padding: 14px 20px;
+  text-decoration: none;
+  font-weight: bold;
+}
+nav a:hover { background-color: #00796b; }
+.container { padding: 30px; max-width: 1200px; margin: auto; }
+h2 { color: #00796b; margin-top: 50px; }
+p, li { margin-bottom: 10px; }
+ul { list-style-type: disc; margin-left: 20px; }
+.section { margin-bottom: 80px; }
+.images { display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 20px; }
+.images img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+button {
+  background-color: #00796b;
+  color: white;
+  padding: 15px 30px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+}
+button:hover { background-color: #004d40; }
+footer { text-align: center; padding: 20px; background-color: #004d40; color: white; }
+
+/* ===== FACT BOXES ===== */
+.fact-box {
+  background-color: #b2dfdb;
+  padding: 15px;
+  border-radius: 10px;
+  margin: 10px 0;
+  text-align: center;
+  font-weight: bold;
+}
+
+/* ===== QUIZ ===== */
+.quiz {
+  background-color: #c8e6c9;
+  padding: 20px;
+  border-radius: 10px;
+  margin: 20px 0;
+}
+.quiz button { margin-top: 10px; }
+
+/* ===== CARDS ===== */
+.card {
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  padding: 20px;
+  width: 300px;
+  margin: 10px;
+  text-align: center;
+  transition: transform 0.3s;
+}
+.card:hover { transform: scale(1.05); }
+.cards-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; }
+
+/* ===== COLLAPSIBLE SECTIONS ===== */
+.collapsible {
+  background-color: #00796b;
+  color: white;
+  cursor: pointer;
+  padding: 14px;
+  width: 100%;
+  border: none;
+  text-align: left;
+  outline: none;
+  font-size: 1.1em;
+  margin: 10px 0;
+  border-radius: 5px;
+}
+.active, .collapsible:hover { background-color: #004d40; }
+.content {
+  padding: 0 15px;
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out;
+  background-color: #b2dfdb;
+  border-radius: 0 0 5px 5px;
+}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width: 768px) {
+  .images { flex-direction: column; }
+  .cards-container { flex-direction: column; align-items: center; }
+}
+</style>
 </head>
 <body>
 
@@ -38,112 +139,159 @@
   <a href="#tips">Ways to Save</a>
   <a href="#technologies">Technologies</a>
   <a href="#gallery">Gallery</a>
+  <a href="#quiz">Quiz</a>
   <a href="#team">Team Water</a>
 </nav>
 
 <div class="container">
 
-  <!-- Importance Section -->
-  <section id="importance" class="section">
-    <h2>Importance of Water</h2>
-    <p>Water is essential for all life on Earth. Humans, animals, and plants rely on it to survive. It powers agriculture, industry, energy production, and our daily lives.</p>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="River ecosystem">
-      <img src="https://images.unsplash.com/photo-1534760149634-5e06d2fa1f0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Water for agriculture">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Clean drinking water">
-    </div>
-  </section>
+<!-- IMPORTANCE -->
+<section id="importance" class="section">
+<h2>Importance of Water</h2>
+<p>Water is essential for all life on Earth. Humans, animals, and plants rely on it to survive. It powers agriculture, industry, energy production, and daily life.</p>
+<div class="images">
+  <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="River ecosystem">
+  <img src="https://images.unsplash.com/photo-1534760149634-5e06d2fa1f0b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Water for agriculture">
+  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Clean drinking water">
+</div>
+<div class="fact-box">Fun Fact: Humans can survive weeks without food but only days without water!</div>
+</section>
 
-  <!-- Global Water Crisis Section -->
-  <section id="crisis" class="section">
-    <h2>Global Water Crisis</h2>
-    <p>Over 2 billion people worldwide lack access to safe drinking water. Droughts, pollution, and climate change worsen the problem every year. Without action, water scarcity will increase dramatically.</p>
-    <ul>
-      <li>By 2025, half of the world’s population may be living in water-stressed areas.</li>
-      <li>Water pollution kills millions of aquatic animals annually.</li>
-      <li>Climate change causes extreme droughts and floods, impacting crops and drinking water.</li>
-    </ul>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1598514982720-6dff0f58c3dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Drought land">
-      <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Polluted river">
-    </div>
-  </section>
+<!-- GLOBAL CRISIS -->
+<section id="crisis" class="section">
+<h2>Global Water Crisis</h2>
+<p>Over 2 billion people worldwide lack access to safe drinking water. Droughts, pollution, and climate change worsen the problem every year.</p>
+<ul>
+<li>By 2025, half of the world’s population may face water scarcity.</li>
+<li>Water pollution kills millions of aquatic animals annually.</li>
+<li>Climate change causes extreme droughts and floods, impacting crops and drinking water.</li>
+<li>Industrial waste contaminates rivers and lakes.</li>
+</ul>
+<div class="images">
+  <img src="https://images.unsplash.com/photo-1598514982720-6dff0f58c3dc?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Drought land">
+  <img src="https://images.unsplash.com/photo-1502082553048-f009c37129b9?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Polluted river">
+</div>
+</section>
 
-  <!-- Dangers Section -->
-  <section id="dangers" class="section">
-    <h2>Dangers of Wasting Water</h2>
-    <ul>
-      <li>Droughts and scarcity in communities worldwide.</li>
-      <li>Harm to animals and plants due to habitat loss.</li>
-      <li>Higher bills and energy usage for households and industries.</li>
-      <li>Contaminated water leads to health problems.</li>
-    </ul>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1529921879218-1b1c3f6e2e6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Drought land">
-      <img src="https://images.unsplash.com/photo-1561500831-f3602a2c1871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Water scarcity">
-      <img src="https://images.unsplash.com/photo-1570197784287-6cb2c1370489?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Polluted water">
-    </div>
-  </section>
+<!-- DANGERS -->
+<section id="dangers" class="section">
+<h2>Dangers of Wasting Water</h2>
+<ul>
+<li>Droughts and scarcity in communities worldwide.</li>
+<li>Harm to animals and plants due to habitat loss.</li>
+<li>Higher bills and energy usage for households and industries.</li>
+<li>Contaminated water leads to health problems.</li>
+<li>Loss of recreational water areas and ecosystems.</li>
+<li>Global conflicts over water resources are rising.</li>
+</ul>
+<div class="images">
+  <img src="https://images.unsplash.com/photo-1529921879218-1b1c3f6e2e6b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Drought land">
+  <img src="https://images.unsplash.com/photo-1561500831-f3602a2c1871?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Water scarcity">
+  <img src="https://images.unsplash.com/photo-1570197784287-6cb2c1f53a2f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Polluted water">
+</div>
+</section>
 
-  <!-- Tips Section -->
-  <section id="tips" class="section">
-    <h2>Ways to Save Water</h2>
-    <ul>
-      <li>Fix leaking taps and pipes.</li>
-      <li>Take shorter showers or use a bucket to collect excess water.</li>
-      <li>Turn off taps while brushing teeth or washing dishes.</li>
-      <li>Use drought-resistant plants in gardens.</li>
-      <li>Collect rainwater for outdoor use.</li>
-      <li>Educate friends and family about water conservation.</li>
-    </ul>
-    <div class="fact-box">Fun Fact: A dripping tap wastes 15 liters of water every day!</div>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1564044492-570e16eaa1b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Collecting rainwater">
-      <img src="https://images.unsplash.com/photo-1588776814546-6e4c08cf3c3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Turning off tap">
-      <img src="https://images.unsplash.com/photo-1581092795366-cd1e6038802b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Water-efficient appliances">
-    </div>
-  </section>
+<!-- WAYS TO SAVE -->
+<section id="tips" class="section">
+<h2>Ways to Save Water</h2>
+<ul>
+<li>Fix leaking taps and pipes immediately.</li>
+<li>Take shorter showers; use a bucket to collect excess water.</li>
+<li>Turn off taps while brushing teeth or washing dishes.</li>
+<li>Use drought-resistant plants in gardens.</li>
+<li>Collect rainwater for outdoor use.</li>
+<li>Educate friends and family about water conservation.</li>
+<li>Reuse greywater from sinks and showers for gardening.</li>
+</ul>
+<div class="fact-box">Dripping taps waste 15 liters of water per day!</div>
+<div class="cards-container">
+<div class="card"><img src="https://images.unsplash.com/photo-1588776814546-6e4c08cf3c3f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" alt="Rainwater"><h3>Collect Rainwater</h3><p>Use rainwater tanks to water gardens.</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1564044492-570e16eaa1b1?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" alt="Turn off taps"><h3>Turn Off Taps</h3><p>Save liters every day by closing taps while brushing.</p></div>
+<div class="card"><img src="https://images.unsplash.com/photo-1581092795366-cd1e6038802b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=200" alt="Water-efficient appliances"><h3>Use Efficient Appliances</h3><p>Low-flow showers and taps reduce water usage.</p></div>
+</div>
+</section>
 
-  <!-- Technologies Section -->
-  <section id="technologies" class="section">
-    <h2>Water-Saving Technologies</h2>
-    <ul>
-      <li>Low-flow taps and showerheads reduce water usage by 30–50%.</li>
-      <li>Dual-flush toilets use less water for liquid waste.</li>
-      <li>Smart irrigation systems save water in agriculture.</li>
-      <li>Rainwater harvesting systems collect and store water for reuse.</li>
-      <li>Greywater recycling reuses water from sinks and showers.</li>
-    </ul>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1591047139820-403f5eb4a82d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Low-flow tap">
-      <img src="https://images.unsplash.com/photo-1589118949245-7d38baf380d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Rainwater harvesting tank">
-      <img src="https://images.unsplash.com/photo-1599832253526-9a2c1f53a2f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Smart irrigation">
-    </div>
-  </section>
+<!-- TECHNOLOGIES -->
+<section id="technologies" class="section">
+<h2>Water-Saving Technologies</h2>
+<ul>
+<li>Low-flow taps and showerheads reduce water usage by 30–50%.</li>
+<li>Dual-flush toilets use less water for liquid waste.</li>
+<li>Smart irrigation systems save water in agriculture.</li>
+<li>Rainwater harvesting systems collect and store water for reuse.</li>
+<li>Greywater recycling reuses water from sinks and showers.</li>
+</ul>
+<div class="images">
+<img src="https://images.unsplash.com/photo-1591047139820-403f5eb4a82d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Low-flow tap">
+<img src="https://images.unsplash.com/photo-1589118949245-7d38baf380d6?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Rainwater harvesting tank">
+<img src="https://images.unsplash.com/photo-1599832253526-9a2c1f53a2f5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Smart irrigation">
+</div>
+</section>
 
-  <!-- Gallery Section -->
-  <section id="gallery" class="section">
-    <h2>Water Conservation Gallery</h2>
-    <div class="images">
-      <img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="River">
-      <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Drinking water">
-      <img src="https://images.unsplash.com/photo-1528731708534-816fe59f90ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Rainwater harvesting">
-      <img src="https://images.unsplash.com/photo-1568051243859-7b4d66d6c412?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Faucet">
-    </div>
-  </section>
+<!-- COLLAPSIBLE FACTS -->
+<section id="facts" class="section">
+<h2>Water Facts & Trivia</h2>
+<button class="collapsible">Did you know?</button>
+<div class="content"><p>70% of the Earth's surface is water, but only 2.5% is freshwater.</p></div>
+<button class="collapsible">Interesting Fact</button>
+<div class="content"><p>The average person uses 80-100 liters of water per day.</p></div>
+<button class="collapsible">Conservation Tip</button>
+<div class="content"><p>Fix leaks early to prevent wasting hundreds of liters per year.</p></div>
+</section>
 
-  <!-- Team Water Section -->
-  <section id="team" class="section">
-    <h2>Support Team Water</h2>
-    <p>You can make a real impact by donating to <strong>Team Water</strong>, an initiative supported by MrBeast to provide clean water for communities worldwide.</p>
-    <button onclick="window.open('https://www.teamtrees.org/','_blank')">Donate to Team Water</button>
-  </section>
+<!-- QUIZ -->
+<section id="quiz" class="section">
+<h2>Quick Water Quiz</h2>
+<div class="quiz">
+<p>1. How much water does a dripping tap waste per day?</p>
+<button onclick="alert('Correct! ~15 liters per day.')">15 liters</button>
+<button onclick="alert('Try again!')">5 liters</button>
+<button onclick="alert('Try again!')">50 liters</button>
+</div>
+<div class="quiz">
+<p>2. What percentage of Earth’s water is freshwater?</p>
+<button onclick="alert('Correct! Only 2.5% is freshwater.')">2.5%</button>
+<button onclick="alert('Try again!')">25%</button>
+<button onclick="alert('Try again!')">50%</button>
+</div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="section">
+<h2>Water Conservation Gallery</h2>
+<div class="images">
+<img src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="River">
+<img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Drinking water">
+<img src="https://images.unsplash.com/photo-1528731708534-816fe59f90ef?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Rainwater harvesting">
+<img src="https://images.unsplash.com/photo-1568051243859-7b4d66d6c412?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=400" alt="Faucet">
+</div>
+</section>
+
+<!-- TEAM WATER -->
+<section id="team" class="section">
+<h2>Support Team Water</h2>
+<p>You can make a real impact by donating to <strong>Team Water</strong>, an initiative supported by MrBeast to provide clean water for communities worldwide.</p>
+<button onclick="window.open('https://www.teamtrees.org/','_blank')">Donate to Team Water</button>
+</section>
 
 </div>
 
 <footer>
-  &copy; 2025 Save Water – Built by a Grade 9 Student
+&copy; 2025 Save Water – Built by a Grade 9 Student
 </footer>
+
+<script>
+// Collapsible script
+var coll = document.getElementsByClassName("collapsible");
+for (let i = 0; i < coll.length; i++) {
+  coll[i].addEventListener("click", function() {
+    this.classList.toggle("active");
+    var content = this.nextElementSibling;
+    if (content.style.maxHeight) { content.style.maxHeight = null; }
+    else { content.style.maxHeight = content.scrollHeight + "px"; }
+  });
+}
+</script>
 
 </body>
 </html>
