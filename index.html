@@ -1,140 +1,139 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Team Water</title>
-<style>
-  body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background: #e0f7fa;
-    color: #333;
-    overflow-x: hidden;
-  }
-  /* Animated Waves Background */
-  .wave-container {
-    position: relative;
-    height: 200px;
-    width: 100%;
-    overflow: hidden;
-  }
-  .wave {
-    position: absolute;
-    width: 200%;
-    height: 200px;
-    background: rgba(0, 123, 255, 0.4);
-    border-radius: 43%;
-    animation: wave-animation 6s infinite linear;
-    bottom: 0;
-  }
-  .wave:nth-child(2) {
-    background: rgba(0, 123, 255, 0.3);
-    animation-duration: 8s;
-    bottom: 10px;
-  }
-  @keyframes wave-animation {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
-  }
-
-  header {
-    background: #0077b6;
-    color: white;
-    text-align: center;
-    padding: 3rem 1rem 1rem 1rem;
-    position: relative;
-  }
-  header h1 { margin: 0; font-size: 2.5rem; }
-  header p { margin-top: 0.5rem; font-size: 1.2rem; }
-
-  section { padding: 2rem; text-align: center; }
-  section h2 { color: #0077b6; margin-bottom: 1rem; }
-
-  .gallery {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 1rem;
-    margin-top: 1rem;
-  }
-  .gallery img {
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    transition: transform 0.3s;
-  }
-  .gallery img:hover { transform: scale(1.05); }
-
-  .cta {
-    background: #00b4d8;
-    color: white;
-    padding: 2rem;
-    margin: 2rem auto;
-    border-radius: 15px;
-    max-width: 600px;
-  }
-  .cta h3 { margin-top: 0; }
-  .cta button {
-    background: #0077b6;
-    color: white;
-    border: none;
-    padding: 1rem 2rem;
-    font-size: 1.2rem;
-    border-radius: 8px;
-    cursor: pointer;
-    margin-top: 1rem;
-    transition: background 0.3s;
-  }
-  .cta button:hover { background: #023e8a; }
-
-  footer {
-    background: #0077b6;
-    color: white;
-    text-align: center;
-    padding: 1rem;
-    margin-top: 2rem;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Water - Protect Our Future</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #e0f7fa;
+            color: #004d40;
+        }
+        header {
+            background-color: #00796b;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav {
+            background-color: #004d40;
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        nav a {
+            color: white;
+            padding: 15px 20px;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            background-color: #00796b;
+        }
+        section {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+        }
+        section img {
+            max-width: 100%;
+            height: auto;
+            margin: 20px 0;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #00695c;
+        }
+        p {
+            line-height: 1.6;
+        }
+        .cta {
+            text-align: center;
+            margin: 40px 0;
+        }
+        .cta a {
+            background-color: #00796b;
+            color: white;
+            padding: 15px 30px;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 8px;
+        }
+        .cta a:hover {
+            background-color: #004d40;
+        }
+        footer {
+            background-color: #004d40;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+        @media (max-width: 600px) {
+            nav {
+                flex-direction: column;
+            }
+            nav a {
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
 
 <header>
-  <h1>Team Water</h1>
-  <p>Together, we make a difference with clean and safe water.</p>
-  <div class="wave-container">
-    <div class="wave"></div>
-    <div class="wave"></div>
-  </div>
+    <h1>Save Water - Protect Our Future</h1>
+    <p>Learn how to save water and make a difference today</p>
 </header>
 
-<section>
-  <h2>Why Water Matters</h2>
-  <p>Clean water is essential for life, health, and our environment. Team Water is dedicated to protecting, conserving, and providing access to safe water for all.</p>
+<nav>
+    <a href="#why">Why Save Water</a>
+    <a href="#tips">How to Save Water</a>
+    <a href="#teamwater">Support Team Water</a>
+</nav>
+
+<section id="why">
+    <h2>Why Water Conservation Matters</h2>
+    <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=800&q=80" alt="Dry cracked earth">
+    <p>Water is one of the most precious resources on Earth. Millions of people around the world suffer from lack of clean water. Wasting water not only depletes local water supplies but also increases energy consumption, as treating and pumping water requires massive amounts of energy. Conserving water helps protect the environment, saves money, and ensures future generations can enjoy access to clean water.</p>
 </section>
 
-<section>
-  <h2>Gallery</h2>
-  <div class="gallery">
-    <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&w=800&q=80" alt="Ocean waves">
-    <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0?auto=format&fit=crop&w=800&q=80" alt="Waterfall">
-    <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=800&q=80" alt="River stream">
-    <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d?auto=format&fit=crop&w=800&q=80" alt="Lake at sunset">
-    <img src="https://images.unsplash.com/photo-1441829266145-b7a6c7f7a6c5?auto=format&fit=crop&w=800&q=80" alt="Rain drops">
-    <img src="https://images.unsplash.com/photo-1518611012118-f0c5d1f6a6be?auto=format&fit=crop&w=800&q=80" alt="Clean drinking water">
-  </div>
+<section id="tips">
+    <h2>Practical Ways to Save Water</h2>
+    <img src="https://images.unsplash.com/photo-1573164574572-cb89e39749a0?auto=format&fit=crop&w=800&q=80" alt="Running tap water">
+    <p>Every drop counts! Simple actions in your daily life can make a huge difference:</p>
+    <ul>
+        <li>Turn off the tap while brushing your teeth.</li>
+        <li>Fix leaks promptly – a dripping tap can waste thousands of liters per year.</li>
+        <li>Use a bucket to wash your car instead of a hose.</li>
+        <li>Collect rainwater for garden use.</li>
+        <li>Choose water-efficient appliances and fixtures.</li>
+        <li>Educate your friends and family about the importance of water conservation.</li>
+    </ul>
 </section>
 
-<section class="cta">
-  <h3>Join Team Water</h3>
-  <p>Your support helps provide safe water to communities that need it the most. Together, we can make a lasting impact.</p>
-  <button onclick="window.location.href='https://teamwater.org/donate'">Donate / Join Us</button>
+<section id="impact">
+    <h2>The Global Water Crisis</h2>
+    <img src="https://images.unsplash.com/photo-1523978591478-c753949ff840?auto=format&fit=crop&w=800&q=80" alt="Water scarcity">
+    <p>Nearly 2 billion people globally do not have safe water at home. In South Africa, regions have faced severe droughts and water restrictions. Water scarcity affects health, food production, and economic development. By taking action now, we can prevent severe shortages and help communities access clean water.</p>
+</section>
+
+<section id="teamwater">
+    <h2>Support Team Water</h2>
+    <img src="https://images.unsplash.com/photo-1595433562696-176171e8d8aa?auto=format&fit=crop&w=800&q=80" alt="Water donation">
+    <p>You can join the global effort to bring clean water to people in need by supporting <strong>Team Water</strong>, a charitable initiative by MrBeast. Your contribution helps fund clean water projects, wells, and sustainable water access worldwide.</p>
+    <div class="cta">
+        <a href="https://teamwater.org/" target="_blank">Donate to Team Water</a>
+    </div>
 </section>
 
 <footer>
-  <p>&copy; 2025 Team Water. All rights reserved.</p>
+    <p>&copy; 2025 Save Water Campaign | Educate, Conserve, Protect</p>
 </footer>
 
 </body>
