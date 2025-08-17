@@ -2,181 +2,131 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>My AI Chat</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Save Water, Save Life</title>
   <style>
     body {
-      font-family: Arial, sans-serif;
       margin: 0;
-      padding: 0;
-      background-color: #f0f0f0;
-      transition: background-color 0.3s, color 0.3s;
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      background: #f0f9ff;
+      color: #222;
     }
-    body.dark { background-color: #121212; color: #f0f0f0; }
+
     header {
-      padding: 20px;
-      text-align: center;
-      background-color: #4caf50;
+      background: #0077b6;
       color: white;
+      text-align: center;
+      padding: 2rem 1rem;
     }
-    body.dark header { background-color: #1b5e20; }
-    #chat {
-      max-width: 600px;
-      margin: 20px auto;
-      padding: 10px;
-      border: 1px solid #ccc;
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: auto;
+      padding: 1rem;
+    }
+
+    h2 {
+      color: #0077b6;
+      margin-top: 2rem;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+
+    .card {
+      background: white;
       border-radius: 10px;
-      background-color: #fff;
-      height: 400px;
-      overflow-y: auto;
-      display: flex;
-      flex-direction: column;
+      padding: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      text-align: center;
+      transition: transform 0.2s;
     }
-    body.dark #chat { background-color: #1e1e1e; border-color: #333; }
-    .message {
-      margin: 10px 0;
-      padding: 10px 15px;
-      border-radius: 15px;
-      max-width: 80%;
-      word-wrap: break-word;
+
+    .card:hover {
+      transform: scale(1.05);
     }
-    .user { background-color: #d1e7ff; align-self: flex-end; }
-    .ai { background-color: #e0ffe0; align-self: flex-start; }
-    body.dark .user { background-color: #2a2a70; }
-    body.dark .ai { background-color: #1b5e20; }
-    #inputArea {
-      max-width: 600px;
-      margin: 0 auto;
-      display: flex;
-      gap: 10px;
-    }
-    #message {
-      flex: 1;
-      padding: 10px;
+
+    .card img {
+      max-width: 100%;
       border-radius: 10px;
-      border: 1px solid #ccc;
-      resize: none;
-      overflow-y: auto;
-      min-height: 40px;
-      max-height: 100px;
     }
-    #send, #toggleTheme {
-      padding: 10px 15px;
-      border-radius: 10px;
-      border: none;
-      cursor: pointer;
-    }
-    #toggleTheme { background-color: #888; color: #fff; }
-    body.dark #toggleTheme { background-color: #555; }
-    #personality {
-      margin: 0 auto 10px auto;
-      max-width: 600px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    #personality select {
-      padding: 5px 10px;
+
+    .btn {
+      display: inline-block;
+      background: #0096c7;
+      color: white;
+      padding: 0.8rem 1.5rem;
       border-radius: 5px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: background 0.3s;
     }
-    #chatContainer { display: flex; flex-direction: column; }
+
+    .btn:hover {
+      background: #023e8a;
+    }
+
+    footer {
+      background: #023e8a;
+      color: white;
+      text-align: center;
+      padding: 1rem;
+      margin-top: 2rem;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>My AI Chat</h1>
+    <h1>💧 Save Water, Save Life</h1>
+    <p>Every drop counts. Together we can make a difference!</p>
   </header>
 
-  <div id="personality">
-    <label for="personalitySelect">AI Personality:</label>
-    <select id="personalitySelect">
-      <option value="Friendly">Friendly</option>
-      <option value="Sarcastic">Sarcastic</option>
-      <option value="Funny">Funny</option>
-      <option value="Wise">Wise</option>
-    </select>
-    <button id="toggleTheme">Dark/Light</button>
-  </div>
+  <section class="container">
+    <h2>Why is Water Important?</h2>
+    <p>Water is life. Humans, animals, and plants depend on clean water to survive. Sadly, billions of liters are wasted every year, while millions of people still don’t have access to safe drinking water.</p>
 
-  <div id="chatContainer">
-    <div id="chat"></div>
-    <div id="inputArea">
-      <textarea id="message" placeholder="Type a message..."></textarea>
-      <button id="send">Send</button>
+    <div class="cards">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1508685096489-7aacd43bd3b1?auto=format&fit=crop&w=500&q=80" alt="Dripping Tap">
+        <h3>Dangers of Wasting Water</h3>
+        <p>Wasting water increases droughts, destroys ecosystems, and limits access for communities in need.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1474650128768-266a0d7bfcb9?auto=format&fit=crop&w=500&q=80" alt="Water Conservation">
+        <h3>How to Save Water</h3>
+        <p>Close taps, fix leaks, use buckets instead of hoses, and reuse water where possible.</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1501594907352-04cda38ebc29?auto=format&fit=crop&w=500&q=80" alt="Team Effort">
+        <h3>Together We Can</h3>
+        <p>If everyone saves a little water, together we save billions of liters worldwide!</p>
+      </div>
     </div>
-  </div>
+  </section>
 
-  <script src="https://js.puter.com/v2/"></script>
-  <script>
-    const chatDiv = document.getElementById('chat');
-    const messageInput = document.getElementById('message');
-    const sendBtn = document.getElementById('send');
-    const toggleThemeBtn = document.getElementById('toggleTheme');
-    const personalitySelect = document.getElementById('personalitySelect');
+  <section class="container" style="text-align: center; margin-top: 2rem;">
+    <h2>Join the #TeamWater Movement 🌍</h2>
+    <p>#TeamWater is a global clean water campaign started by MrBeast and Mark Rober to raise $40 million by August 31, 2025, aiming to provide clean water for 2 million people. 
+       Supported by WaterAid, every contribution helps build sustainable water systems around the world.</p>
+    <a href="https://teamwater.org/" target="_blank" class="btn">💧 Donate to #TeamWater</a>
+  </section>
 
-    // Load saved chat
-    let chatHistory = JSON.parse(localStorage.getItem('chatHistory') || '[]');
-    chatHistory.forEach(msg => appendMessage(msg.sender, msg.text));
-
-    // Auto-expand textarea
-    messageInput.addEventListener('input', () => {
-      messageInput.style.height = 'auto';
-      messageInput.style.height = Math.min(messageInput.scrollHeight, 100) + 'px';
-    });
-
-    // Toggle dark/light mode
-    toggleThemeBtn.addEventListener('click', () => {
-      document.body.classList.toggle('dark');
-    });
-
-    function appendMessage(sender, text) {
-      const p = document.createElement('div');
-      p.classList.add('message');
-      p.classList.add(sender === 'You' ? 'user' : 'ai');
-      p.textContent = text;
-      chatDiv.appendChild(p);
-      chatDiv.scrollTop = chatDiv.scrollHeight;
-
-      // Save to local storage
-      chatHistory.push({ sender, text });
-      localStorage.setItem('chatHistory', JSON.stringify(chatHistory));
-    }
-
-    puter.ready(() => {
-      let messageCount = 0;
-
-      async function sendMessage() {
-        const message = messageInput.value.trim();
-        if (!message) return;
-
-        appendMessage('You', message);
-        messageInput.value = '';
-        messageInput.style.height = 'auto';
-
-        const personality = personalitySelect.value;
-        let model = messageCount < 5 ? "x-ai/grok-4" : "x-ai/grok-3";
-
-        try {
-          const response = await puter.ai.chat(
-            message,
-            { model: model, instructions: `Respond as a ${personality} AI.` }
-          );
-          appendMessage('AI', response.message.content);
-        } catch (err) {
-          appendMessage('AI', "Error: Could not get a response.");
-          console.error(err);
-        }
-
-        messageCount++;
-      }
-
-      sendBtn.addEventListener('click', sendMessage);
-      messageInput.addEventListener('keypress', (e) => {
-        if (e.key === 'Enter' && !e.shiftKey) {
-          e.preventDefault();
-          sendMessage();
-        }
-      });
-    });
-  </script>
+  <footer>
+    <p>Made with ❤️ by a Grade 9 student | South Africa | 2025</p>
+  </footer>
 </body>
 </html>
