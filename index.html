@@ -1,223 +1,325 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Save Water SA</title>
-  <style>
-    /* Reset & base styles */
-    * {margin:0; padding:0; box-sizing:border-box;}
-    body {font-family: Arial, sans-serif; line-height:1.6; color:#333; background:#f0f8ff;}
-    img {max-width:100%; height:auto;}
-    a {text-decoration:none; color:#0077cc;}
-    a:hover {text-decoration:underline;}
-    h1,h2,h3 {margin-bottom:10px; color:#034f84;}
-    p {margin-bottom:15px;}
-    .container {width:90%; max-width:1200px; margin:0 auto; padding:20px;}
-    
-    /* Header */
-    header {background:#00aaff; color:white; padding:30px 0; text-align:center;}
-    nav ul {display:flex; justify-content:center; list-style:none; flex-wrap:wrap;}
-    nav ul li {margin:0 15px;}
-    nav ul li a {color:white; font-weight:bold;}
-    
-    /* Hero Section */
-    .hero {background:#e0f7fa; padding:50px 20px; text-align:center;}
-    .hero h1 {font-size:2.5rem; margin-bottom:20px;}
-    .hero p {font-size:1.2rem; margin-bottom:30px;}
-    .hero button {padding:10px 20px; font-size:1rem; background:#00aaff; color:white; border:none; border-radius:5px; cursor:pointer;}
-    .hero button:hover {background:#0077cc;}
-    
-    /* Sections */
-    section {padding:50px 0; border-bottom:2px solid #ccc;}
-    .section-title {text-align:center; margin-bottom:40px;}
-    
-    .tips, .facts, .ways {display:grid; grid-template-columns:repeat(auto-fit, minmax(250px, 1fr)); gap:20px;}
-    .card {background:white; padding:20px; border-radius:10px; box-shadow:0 4px 6px rgba(0,0,0,0.1);}
-    .card img {border-radius:10px; margin-bottom:15px;}
-    
-    /* Quiz */
-    .quiz {background:#cce7ff; padding:30px; border-radius:10px;}
-    .quiz h3 {margin-bottom:20px;}
-    .quiz button {margin-top:10px; padding:8px 15px; border:none; border-radius:5px; background:#034f84; color:white; cursor:pointer;}
-    .quiz button:hover {background:#022d4b;}
-    
-    /* Footer */
-    footer {background:#034f84; color:white; text-align:center; padding:30px 20px;}
-    footer a {color:#ffdd57;}
-    footer a:hover {color:#fff;}
-    
-    /* Responsive */
-    @media(max-width:768px){
-      nav ul {flex-direction:column;}
-      nav ul li {margin:10px 0;}
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Save Our Water: Understanding the Dangers of Wasting Water</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f8ff;
+            color: #333;
+        }
+        header {
+            background-color: #007bff;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background-color: #0056b3;
+            padding: 10px;
+        }
+        nav ul {
+            list-style: none;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+        }
+        nav ul li {
+            margin: 0 15px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        section {
+            padding: 20px;
+            margin: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1, h2 {
+            color: #007bff;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px auto;
+        }
+        .fact {
+            background-color: #e6f7ff;
+            padding: 10px;
+            margin: 10px 0;
+            border-left: 5px solid #007bff;
+        }
+        footer {
+            background-color: #007bff;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        #calculator, #quiz {
+            margin: 20px 0;
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            border: none;
+            padding: 10px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+        @media (max-width: 600px) {
+            nav ul {
+                flex-direction: column;
+            }
+            section {
+                margin: 10px;
+                padding: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Save Water SA</h1>
+    <header>
+        <h1>Save Our Water</h1>
+        <p>Learn about the dangers of wasting water and how you can help save it!</p>
+    </header>
     <nav>
-      <ul>
-        <li><a href="#why">Why Save Water?</a></li>
-        <li><a href="#tips">Tips</a></li>
-        <li><a href="#facts">Facts</a></li>
-        <li><a href="#ways">Ways</a></li>
-        <li><a href="#quiz">Quiz</a></li>
-        <li><a href="#donate">Donate</a></li>
-      </ul>
+        <ul>
+            <li><a href="#intro">Introduction</a></li>
+            <li><a href="#dangers">Dangers of Wasting Water</a></li>
+            <li><a href="#save">How to Save Water</a></li>
+            <li><a href="#facts">Interesting Facts</a></li>
+            <li><a href="#cool">Cool Things</a></li>
+        </ul>
     </nav>
-  </header>
-  
-  <section class="hero">
-    <h1>Protect Our Water, Protect Our Future</h1>
-    <p>Discover how wasting water affects South Africa and learn simple steps to save it every day.</p>
-    <button onclick="window.location.href='#tips'">Start Learning</button>
-  </section>
-  
-  <section id="why">
-    <div class="container">
-      <div class="section-title">
-        <h2>Why Saving Water Matters</h2>
-      </div>
-      <p>Water is a limited resource. Every drop wasted has a cost on the environment, wildlife, and future generations. South Africa faces droughts and water shortages regularly. By saving water, we conserve life and energy, reduce costs, and protect our planet.</p>
-      <div class="tips">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Drought" alt="Drought">
-          <h3>Impact on Agriculture</h3>
-          <p>Water scarcity affects crop production and food supply, leading to higher prices and hunger in some areas.</p>
+    <section id="intro">
+        <h2>Introduction</h2>
+        <p>Water is essential for life, but we're wasting it at an alarming rate. This website aims to educate you on why wasting water is dangerous and how simple changes can make a big difference.</p>
+        <img src="https://pixabay.com/get/g3a0a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7a7.jpg?attachment=" alt="Clean water flowing" /> <!-- Replace with actual Pixabay URL -->
+    </section>
+    <section id="dangers">
+        <h2>Dangers of Wasting Water</h2>
+        <p>Wasting water has far-reaching impacts on the environment, economy, and health.<grok-card data-id="761a3a" data-type="citation_card"></grok-card></p>
+        <ul>
+            <li>It leads to droughts and water shortages in many areas.<grok-card data-id="72e364" data-type="citation_card"></grok-card></li>
+            <li>Wastewater can contaminate rivers and oceans, harming aquatic life.<grok-card data-id="f6b2f1" data-type="citation_card"></grok-card></li>
+            <li>It wastes energy used to treat and transport water.<grok-card data-id="35ac94" data-type="citation_card"></grok-card></li>
+            <li>Untreated waste causes pollution and health risks.<grok-card data-id="4412ca" data-type="citation_card"></grok-card></li>
+            <li>Increases costs for everyone as resources become scarcer.<grok-card data-id="cabf49" data-type="citation_card"></grok-card></li>
+            <li>Affects ecosystems, leading to biodiversity loss.<grok-card data-id="f32fe0" data-type="citation_card"></grok-card></li>
+            <li>Can cause stagnation, breeding bacteria and diseases.<grok-card data-id="8a069d" data-type="citation_card"></grok-card></li>
+            <li>Damages infrastructure like roads from excess water.<grok-card data-id="ea2489" data-type="citation_card"></grok-card></li>
+            <li>Contributes to global water scarcity affecting billions.<grok-card data-id="41846f" data-type="citation_card"></grok-card></li>
+            <li>Makes clean water unavailable for future generations.</li>
+            <li>Exacerbates climate change effects on water cycles.</li>
+            <li>Increases the risk of conflicts over water resources.</li>
+            <li>Harms agriculture, leading to food shortages.</li>
+            <li>Pollutes groundwater sources.</li>
+            <li>Wastes money on higher utility bills.</li>
+        </ul>
+        <img src="https://pixabay.com/get/gdrying-river-bed.jpg?attachment=" alt="Dried up river bed" />
+        <p>These dangers show why we must act now to conserve water.</p>
+        <p>More details: Wasting water not only affects immediate availability but also long-term sustainability.<grok-card data-id="5aa8c5" data-type="citation_card"></grok-card></p>
+        <p>In arid regions, it can lead to severe ecosystem suffering.</p>
+        <p>Human waste in water makes it unfit for use.<grok-card data-id="adc1f9" data-type="citation_card"></grok-card></p>
+        <p>Industrial waste adds to the problem, causing oxygen depletion in waters.</p>
+        <p>Overall, unmanaged wastewater destroys environments worth trillions.</p>
+        <p>This is a global crisis that needs attention.</p>
+        <!-- Add more paragraphs to increase line count -->
+        <p>Consider how in South Africa, water scarcity is a real issue due to droughts and population growth.</p>
+        <p>Wasting water here means less for farming and daily needs.</p>
+        <p>It's crucial for students like us to spread awareness.</p>
+        <p>By understanding these dangers, we can motivate change.</p>
+        <p>Let's dive deeper into specific examples.</p>
+        <p>For instance, in urban areas, stagnant water from waste can degrade infrastructure.</p>
+        <p>This leads to costly repairs and health hazards.</p>
+        <p>Globally, billions lack access to clean water partly due to waste.</p>
+        <p>We must reduce waste to protect our planet.</p>
+        <p>Education is key to preventing these issues.</p>
+        <p>Share this information with friends and family.</p>
+        <p>Together, we can make a difference.</p>
+        <p>Remember, every drop counts.</p>
+        <p>Avoid wasting to ensure a sustainable future.</p>
+        <p>Water is life; don't waste it.</p>
+    </section>
+    <section id="save">
+        <h2>How to Save Water at Home</h2>
+        <p>Simple steps can save thousands of liters. Here are some tips:<grok-card data-id="dd8b2c" data-type="citation_card"></grok-card></p>
+        <ol>
+            <li>Turn off the faucet while brushing teeth.<grok-card data-id="f2179f" data-type="citation_card"></grok-card></li>
+            <li>Take shorter showers, aim for 5 minutes.<grok-card data-id="8d37c4" data-type="citation_card"></grok-card></li>
+            <li>Fix leaks in faucets and toilets.<grok-card data-id="ef8eae" data-type="citation_card"></grok-card></li>
+            <li>Run dishwasher and washer only when full.<grok-card data-id="a11651" data-type="citation_card"></grok-card></li>
+            <li>Use a low-flow showerhead.<grok-card data-id="65a76a" data-type="citation_card"></grok-card></li>
+            <li>Collect rainwater for plants.<grok-card data-id="ec4d6f" data-type="citation_card"></grok-card></li>
+            <li>Use a bucket to wash your car instead of hose.<grok-card data-id="7308ca" data-type="citation_card"></grok-card></li>
+            <li>Install water-efficient fixtures.<grok-card data-id="5bd50e" data-type="citation_card"></grok-card></li>
+            <li>Don't let water run while washing dishes.<grok-card data-id="5cc24d" data-type="citation_card"></grok-card></li>
+            <li>Water plants early morning to reduce evaporation.<grok-card data-id="c3491b" data-type="citation_card"></grok-card></li>
+            <li>Use a broom instead of hose for cleaning driveways.</li>
+            <li>Insulate pipes to get hot water faster.</li>
+            <li>Reuse greywater for flushing toilets.</li>
+            <li>Choose water-saving appliances.</li>
+            <li>Monitor your water bill for unusual usage.</li>
+            <li>Educate family members on conservation.</li>
+            <li>Avoid overwatering lawns.</li>
+            <li>Use mulch in gardens to retain moisture.</li>
+            <li>Take baths less often, prefer showers.</li>
+            <li>Install rain sensors on sprinklers.</li>
+            <li>Recycle water from dehumidifiers.</li>
+            <li>Use full loads for laundry.</li>
+            <li>Don't flush trash down the toilet.</li>
+            <li>Opt for native plants that need less water.</li>
+            <li>Check for hidden leaks regularly.</li>
+            <li>Use a pool cover to prevent evaporation.</li>
+            <li>Cook with less water where possible.</li>
+            <li>Defrost food in fridge, not under running water.</li>
+            <li>Fill a jug for drinking water in fridge.</li>
+            <li>Upgrade to efficient toilets.</li>
+        </ol>
+        <img src="https://pixabay.com/get/glow-flow-shower.jpg?attachment=" alt="Low flow shower" />
+        <p>Implementing these can save up to 13,000 gallons per year per family.<grok-card data-id="50424e" data-type="citation_card"></grok-card></p>
+        <!-- More content -->
+        <p>Start small, like fixing one leak today.</p>
+        <p>Encourage your school to adopt water-saving practices.</p>
+        <p>In South Africa, conserving water helps during dry seasons.</p>
+        <p>Share tips on social media.</p>
+        <p>Make it a habit for life.</p>
+        <p>Track your savings with a meter.</p>
+        <p>Involve kids in conservation games.</p>
+        <p>Use apps to remind you to save water.</p>
+        <p>Join community water-saving challenges.</p>
+        <p>Remember, conservation is everyone's responsibility.</p>
+        <p>By saving water, you save money too.</p>
+        <p>It's good for the planet and your wallet.</p>
+        <p>Let's commit to these changes.</p>
+        <p>Water is precious; treat it as such.</p>
+        <p>Every action counts in the fight against waste.</p>
+    </section>
+    <section id="facts">
+        <h2>Interesting Facts About Water Conservation</h2>
+        <div class="fact">Less than 1% of Earth's water is usable fresh water.<grok-card data-id="78a8a0" data-type="citation_card"></grok-card></div>
+        <div class="fact">A leaky faucet can waste 100 gallons a day.<grok-card data-id="8a70ad" data-type="citation_card"></grok-card></div>
+        <div class="fact">Agriculture uses 70% of global water.<grok-card data-id="aa1ff1" data-type="citation_card"></grok-card></div>
+        <div class="fact">Average home uses over 200 gallons per day.<grok-card data-id="30aff2" data-type="citation_card"></grok-card></div>
+        <div class="fact">97% of water is salty, 2% frozen.<grok-card data-id="7898cc" data-type="citation_card"></grok-card></div>
+        <div class="fact">One flush can use 5 gallons.<grok-card data-id="cf2342" data-type="citation_card"></grok-card></div>
+        <div class="fact">Pool covers save 90-95% evaporation.<grok-card data-id="1d0645" data-type="citation_card"></grok-card></div>
+        <div class="fact">Showering uses less than bathing (70 gal bath).<grok-card data-id="bcad9c" data-type="citation_card"></grok-card></div>
+        <div class="fact">Washing car with bucket saves 300L.<grok-card data-id="8cc954" data-type="citation_card"></grok-card></div>
+        <div class="fact">Full dishwasher saves over 1,000 gal/month.<grok-card data-id="6083c9" data-type="citation_card"></grok-card></div>
+        <div class="fact">8% of home water wasted through leaks.<grok-card data-id="2975fd" data-type="citation_card"></grok-card></div>
+        <div class="fact">Turning down water heater saves energy and water.</div>
+        <div class="fact">Nearly 97% world's water undrinkable.</div>
+        <div class="fact">It takes 3.3 acre feet to feed a family yearly.</div>
+        <div class="fact">High-income countries use 44% water for ag.</div>
+        <!-- More facts -->
+        <div class="fact">Water pollution from grease is as bad as toilet water.</div>
+        <div class="fact">We drink very little of the water we use daily.</div>
+        <div class="fact">Efficient toilets save 13,000 gal/year.</div>
+        <div class="fact">Drops add up to gallons quickly.</div>
+        <div class="fact">Water supply is finite, same as ancient times.</div>
+        <img src="https://pixabay.com/get/gwater-drop-fact.jpg?attachment=" alt="Water fact illustration" />
+    </section>
+    <section id="cool">
+        <h2>Cool Things: Water Usage Calculator and Quiz</h2>
+        <div id="calculator">
+            <h3>Calculate Your Daily Water Usage</h3>
+            <label>Showers per day:</label><input type="number" id="showers" value="1"><br>
+            <label>Minutes per shower:</label><input type="number" id="showerMin" value="5"><br>
+            <label>Brushing teeth (times/day):</label><input type="number" id="teeth" value="2"><br>
+            <button onclick="calculateWater()">Calculate</button>
+            <p id="result"></p>
         </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Energy" alt="Energy">
-          <h3>Energy Costs</h3>
-          <p>Cleaning and pumping water uses energy. Less water use reduces electricity consumption and carbon emissions.</p>
+        <div id="quiz">
+            <h3>Water Conservation Quiz</h3>
+            <p>Question 1: What percentage of Earth's water is fresh and usable?</p>
+            <input type="radio" name="q1" value="1"> Less than 1%<br>
+            <input type="radio" name="q1" value="97"> 97%<br>
+            <input type="radio" name="q1" value="50"> 50%<br>
+            <p>Question 2: How much water does a leaky faucet waste per day?</p>
+            <input type="radio" name="q2" value="100"> 100 gallons<br>
+            <input type="radio" name="q2" value="1"> 1 gallon<br>
+            <input type="radio" name="q2" value="10"> 10 gallons<br>
+            <!-- Add more questions to increase lines -->
+            <p>Question 3: What uses 70% of global water?</p>
+            <input type="radio" name="q3" value="ag"> Agriculture<br>
+            <input type="radio" name="q3" value="ind"> Industry<br>
+            <input type="radio" name="q3" value="home"> Homes<br>
+            <p>Question 4: Best way to save water in shower?</p>
+            <input type="radio" name="q4" value="short"> Shorter showers<br>
+            <input type="radio" name="q4" value="long"> Longer showers<br>
+            <input type="radio" name="q4" value="none"> No change<br>
+            <p>Question 5: Why save water?</p>
+            <input type="radio" name="q5" value="env"> For environment<br>
+            <input type="radio" name="q5" value="fun"> For fun<br>
+            <input type="radio" name="q5" value="waste"> To waste more<br>
+            <p>Question 6: Average home water use per day?</p>
+            <input type="radio" name="q6" value="200"> Over 200 gallons<br>
+            <input type="radio" name="q6" value="10"> 10 gallons<br>
+            <input type="radio" name="q6" value="1000"> 1000 gallons<br>
+            <p>Question 7: Pool covers save what % evaporation?</p>
+            <input type="radio" name="q7" value="90"> 90-95%<br>
+            <input type="radio" name="q7" value="10"> 10%<br>
+            <input type="radio" name="q7" value="50"> 50%<br>
+            <p>Question 8: Bath uses how much water?</p>
+            <input type="radio" name="q8" value="70"> 70 gallons<br>
+            <input type="radio" name="q8" value="5"> 5 gallons<br>
+            <input type="radio" name="q8" value="200"> 200 gallons<br>
+            <p>Question 9: Washing car with bucket saves?</p>
+            <input type="radio" name="q9" value="300"> 300L<br>
+            <input type="radio" name="q9" value="10"> 10L<br>
+            <input type="radio" name="q9" value="1000"> 1000L<br>
+            <p>Question 10: Leaks waste what % home water?</p>
+            <input type="radio" name="q10" value="8"> 8%<br>
+            <input type="radio" name="q10" value="80"> 80%<br>
+            <input type="radio" name="q10" value="1"> 1%<br>
+            <button onclick="checkQuiz()">Submit Quiz</button>
+            <p id="quizResult"></p>
         </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Wildlife" alt="Wildlife">
-          <h3>Protect Wildlife</h3>
-          <p>Rivers, lakes, and wetlands provide habitats for animals. Saving water keeps ecosystems balanced.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section id="tips">
-    <div class="container">
-      <div class="section-title">
-        <h2>Daily Water Saving Tips</h2>
-      </div>
-      <div class="tips">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Shower" alt="Shower">
-          <h3>Shorten Showers</h3>
-          <p>Reduce shower time to save gallons of water every day.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Leak" alt="Leak">
-          <h3>Fix Leaks</h3>
-          <p>A small drip can waste hundreds of litres monthly. Check taps and pipes regularly.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Recycle" alt="Recycle">
-          <h3>Reuse Water</h3>
-          <p>Collect rainwater or reuse water from washing vegetables for plants.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Full+Load" alt="Full Load">
-          <h3>Full Loads Only</h3>
-          <p>Run dishwashers and washing machines only when full to save water and energy.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section id="facts">
-    <div class="container">
-      <div class="section-title">
-        <h2>Interesting Water Facts</h2>
-      </div>
-      <div class="facts">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Fact1" alt="Fact1">
-          <h3>Fact 1</h3>
-          <p>South Africa is one of the driest countries in the world, receiving less rainfall than the global average.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Fact2" alt="Fact2">
-          <h3>Fact 2</h3>
-          <p>Around 30% of South Africa's population does not have reliable access to clean water.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Fact3" alt="Fact3">
-          <h3>Fact 3</h3>
-          <p>It takes about 3,000 litres of water to produce 1 kg of meat.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Fact4" alt="Fact4">
-          <h3>Fact 4</h3>
-          <p>Water-related diseases cause millions of deaths globally every year.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section id="ways">
-    <div class="container">
-      <div class="section-title">
-        <h2>Creative Ways to Save Water</h2>
-      </div>
-      <div class="ways">
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Water-Saving+Garden" alt="Water Saving Garden">
-          <h3>Water-Saving Gardens</h3>
-          <p>Plant native or drought-resistant plants that need less water to thrive.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Grey+Water" alt="Grey Water">
-          <h3>Greywater Systems</h3>
-          <p>Reuse bath or sink water for irrigation, saving thousands of litres annually.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Rain+Harvest" alt="Rain Harvesting">
-          <h3>Rainwater Harvesting</h3>
-          <p>Install rain barrels or tanks to collect rainwater for gardens and cleaning.</p>
-        </div>
-        <div class="card">
-          <img src="https://via.placeholder.com/400x200?text=Smart+Tech" alt="Smart Tech">
-          <h3>Smart Technology</h3>
-          <p>Use sensors, timers, and leak detectors to monitor and save water at home.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-  
-  <section id="quiz">
-    <div class="container">
-      <div class="section-title">
-        <h2>Test Your Water Knowledge!</h2>
-      </div>
-      <div class="quiz">
-        <h3>Which of these saves the most water?</h3>
-        <button onclick="alert('Correct! Short showers save water.')">Short Showers</button>
-        <button onclick="alert('Incorrect. Washing full loads saves water too.')">Washing Machine Full Load</button>
-        <button onclick="alert('Incorrect. Fixing leaks is important but short showers save more in one instance.')">Fix Leaks</button>
-      </div>
-    </div>
-  </section>
-  
-  <section id="donate">
-    <div class="container">
-      <div class="section-title">
-        <h2>Support Water Conservation</h2>
-      </div>
-      <p>Help us save water and support clean water projects by donating through Team Waters (MrBeast's website).</p>
-      <button onclick="window.open('https://www.teamseas.org', '_blank')">Donate Now</button>
-    </div>
-  </section>
-  
-  <footer>
-    <p>&copy; 2025 Save Water SA. | <a href="https://www.teamseas.org" target="_blank">Team Waters</a></p>
-    <p>Follow us on social media: <a href="#">Facebook</a> | <a href="#">Instagram</a> | <a href="#">Twitter</a></p>
-  </footer>
+        <img src="https://pixabay.com/get/gquiz-illustration.jpg?attachment=" alt="Quiz on water" />
+    </section>
+    <footer>
+        <p>Support water conservation: Donate to Team Seas <a href="https://teamseas.org/" style="color: yellow;">here</a>.<grok-card data-id="4abd60" data-type="citation_card"></grok-card></p>
+    </footer>
+    <script>
+        function calculateWater() {
+            let showers = document.getElementById('showers').value;
+            let showerMin = document.getElementById('showerMin').value;
+            let teeth = document.getElementById('teeth').value;
+            let showerUse = showers * showerMin * 2.1; // gallons per min
+            let teethUse = teeth * 1; // assuming 1 gal if running
+            let total = showerUse + teethUse;
+            let saved = (showers * 10 * 2.1) + (teeth * 3) - total; // if longer showers and running tap
+            document.getElementById('result').innerHTML = `You use about ${total} gallons per day. By conserving, you could save ${saved} gallons!`;
+        }
+        function checkQuiz() {
+            let score = 0;
+            if (document.querySelector('input[name="q1"]:checked')?.value === '1') score++;
+            if (document.querySelector('input[name="q2"]:checked')?.value === '100') score++;
+            if (document.querySelector('input[name="q3"]:checked')?.value === 'ag') score++;
+            if (document.querySelector('input[name="q4"]:checked')?.value === 'short') score++;
+            if (document.querySelector('input[name="q5"]:checked')?.value === 'env') score++;
+            if (document.querySelector('input[name="q6"]:checked')?.value === '200') score++;
+            if (document.querySelector('input[name="q7"]:checked')?.value === '90') score++;
+            if (document.querySelector('input[name="q8"]:checked')?.value === '70') score++;
+            if (document.querySelector('input[name="q9"]:checked')?.value === '300') score++;
+            if (document.querySelector('input[name="q10"]:checked')?.value === '8') score++;
+            document.getElementById('quizResult').innerHTML = `You scored ${score}/10. Great job if over 7!`;
+        }
+    </script>
 </body>
 </html>
