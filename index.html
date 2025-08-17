@@ -3,94 +3,56 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Save Water, Save Life</title>
+  <title>Team Water</title>
   <style>
     body {
-      margin: 0;
       font-family: Arial, sans-serif;
-      line-height: 1.6;
+      margin: 0;
+      padding: 0;
       background: #f0f9ff;
-      color: #222;
+      color: #333;
     }
-
     header {
       background: #0077b6;
       color: white;
+      padding: 2rem;
       text-align: center;
-      padding: 2rem 1rem;
     }
-
     header h1 {
       margin: 0;
       font-size: 2.5rem;
     }
-
     header p {
+      margin-top: 0.5rem;
       font-size: 1.2rem;
     }
-
-    .container {
-      max-width: 1100px;
-      margin: auto;
-      padding: 1rem;
+    section {
+      padding: 2rem;
+      text-align: center;
     }
-
-    h2 {
+    section h2 {
       color: #0077b6;
-      margin-top: 2rem;
+      margin-bottom: 1rem;
     }
-
-    .cards {
+    .gallery {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 1rem;
       margin-top: 1rem;
     }
-
-    .card {
-      background: white;
+    .gallery img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
       border-radius: 10px;
-      padding: 1rem;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-      text-align: center;
-      transition: transform 0.2s;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+      transition: transform 0.3s;
     }
-
-    .card:hover {
+    .gallery img:hover {
       transform: scale(1.05);
     }
-
-    .card img {
-      max-width: 100%;
-      border-radius: 10px;
-    }
-
-    blockquote {
-      font-style: italic;
-      background: #e0f7fa;
-      padding: 1rem;
-      border-left: 5px solid #0077b6;
-      margin: 1.5rem 0;
-      border-radius: 5px;
-    }
-
-    .btn {
-      display: inline-block;
-      background: #0096c7;
-      color: white;
-      padding: 0.8rem 1.5rem;
-      border-radius: 5px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: background 0.3s;
-    }
-
-    .btn:hover {
-      background: #023e8a;
-    }
-
     footer {
-      background: #023e8a;
+      background: #0077b6;
       color: white;
       text-align: center;
       padding: 1rem;
@@ -100,68 +62,29 @@
 </head>
 <body>
   <header>
-    <h1>💧 Save Water, Save Life</h1>
-    <p>Every drop counts. Together we can make a difference!</p>
+    <h1>Team Water</h1>
+    <p>Together, we make a difference with clean and safe water.</p>
   </header>
 
-  <section class="container">
-    <h2>Why is Water Important?</h2>
-    <p>Water is not just a resource; it is the heartbeat of our planet. Every human, every animal, every plant, every ecosystem depends on it. Without clean water, communities collapse, children fall ill, crops fail, and entire regions face famine.</p>
-    <blockquote>“Thousands have lived without love, not one without water.” – W.H. Auden</blockquote>
+  <section>
+    <h2>Why Water Matters</h2>
+    <p>Clean water is essential for life, health, and our environment. Team Water is dedicated to protecting, conserving, and providing access to safe water for all.</p>
   </section>
 
-  <section class="container">
-    <h2>The Global Water Crisis 🌍</h2>
-    <p>According to the United Nations, more than <b>2 billion people</b> do not have access to safe drinking water. By 2050, nearly half of the world’s population will be living in water-stressed areas if we do not act now. Cities run dry, rivers shrink, and groundwater disappears faster than nature can replenish it.</p>
-    <p>Wasting water is not just about higher bills—it is about taking away from those who already struggle daily to fill a bucket or walk kilometers to the nearest well.</p>
-  </section>
-
-  <section class="container">
-    <h2>South Africa’s Water Struggle 🇿🇦</h2>
-    <p>In South Africa, water scarcity is already a daily reality. Cities like Cape Town nearly ran out of water during the 2018 "Day Zero" crisis. Farmers across the country battle droughts that destroy crops and livestock. Climate change makes rainfall less predictable, while growing cities put more pressure on our limited water supply.</p>
-    <p>Every time we leave the tap running, we risk making the next "Day Zero" come sooner.</p>
-  </section>
-
-  <section class="container">
-    <h2>How YOU Can Save Water 💡</h2>
-    <div class="cards">
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/c/c4/Leaky_tap.jpg" alt="Fix leaks">
-        <h3>Fix Leaks</h3>
-        <p>A dripping tap can waste over 10,000 liters of water a year. Fixing leaks is the simplest step we can take at home.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Bucket_full_of_water.jpg" alt="Use buckets not hoses">
-        <h3>Use Buckets</h3>
-        <p>Wash your car or water your plants with a bucket instead of a hose. A hosepipe can waste hundreds of liters in minutes.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/0/0c/Recycled_water.jpg" alt="Reuse water">
-        <h3>Reuse Water</h3>
-        <p>Reuse greywater (like from washing dishes or laundry) for gardens or flushing toilets where possible.</p>
-      </div>
-      <div class="card">
-        <img src="https://upload.wikimedia.org/wikipedia/commons/e/e3/Water-saving_showerhead.jpg" alt="Short showers">
-        <h3>Take Short Showers</h3>
-        <p>Cutting your shower time by just 2 minutes can save up to 20 liters of water each day.</p>
-      </div>
+  <section>
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e" alt="Ocean waves">
+      <img src="https://images.unsplash.com/photo-1506748686214-e9df14d4d9d0" alt="Waterfall">
+      <img src="https://images.unsplash.com/photo-1469474968028-56623f02e42e" alt="River stream">
+      <img src="https://images.unsplash.com/photo-1504384308090-c894fdcc538d" alt="Lake at sunset">
+      <img src="https://images.unsplash.com/photo-1441829266145-b7a6c7f7a6c5" alt="Rain drops">
+      <img src="https://images.unsplash.com/photo-1518611012118-f0c5d1f6a6be" alt="Clean drinking water">
     </div>
   </section>
 
-  <section class="container" style="text-align: center; margin-top: 2rem;">
-    <h2>Join the #TeamWater Movement 🌍</h2>
-    <p>#TeamWater is a global clean water campaign started by MrBeast and Mark Rober to raise $40 million by August 31, 2025, aiming to provide clean water for 2 million people. Supported by WaterAid, every contribution helps build solar-powered wells, rainwater harvesting systems, and long-term sustainable solutions for communities worldwide.</p>
-    <a href="https://teamwater.org/" target="_blank" class="btn">💧 Donate to #TeamWater</a>
-  </section>
-
-  <section class="container">
-    <h2>Our Shared Responsibility ✨</h2>
-    <p>Saving water is not just about today—it is about tomorrow. Every glass we drink, every river we swim in, every rainstorm that fills our dams is part of a bigger cycle. The choices we make now will decide if future generations grow up in a world where water is abundant or scarce.</p>
-    <blockquote>“We never know the worth of water till the well is dry.” – Thomas Fuller</blockquote>
-  </section>
-
   <footer>
-    <p>Made with ❤️ by a Grade 9 student | South Africa | 2025</p>
+    <p>&copy; 2025 Team Water. All rights reserved.</p>
   </footer>
 </body>
 </html>
